@@ -1,0 +1,65 @@
+
+.input1{
+    width: 60px;
+    height: 60px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.input2{
+    width: 45px;
+    height: 45px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.input3{
+    width: 30px;
+    height: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.input4{
+    width: 45px;
+    height: 45px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.input5{
+    width: 60px;
+    height: 60px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+@media (max-width: 640px) {
+    .input1{
+        width: 60px;
+        height: 60px;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    .input2{
+        width: 45px;
+        height: 45px;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    .input3{
+        width: 30px;
+        height: 30px;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    .input4{
+        width: 45px;
+        height: 45px;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    .input5{
+        width: 60px;
+        height: 60px;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+   
+}
