@@ -27,7 +27,7 @@ export default function Test() {
   cogFunctions.set("Ti", 0);
   cogFunctions.set("Fe", 0);
   cogFunctions.set("Fi", 0);
-  
+
   let tempArray = [{
     cogfunc: "Ne",
     question: "Миний толгойгоор дүүрэн шинэ санаанууд байдаг",
@@ -110,7 +110,7 @@ export default function Test() {
   }, [])
 
   const onClickRadio = (choice, questionNum, cogfunc) => {
- 
+
     cogFunctions = savingCogFunc;
     // check whether it's change or new
     if (questionChecked[questionNum]) {
@@ -159,32 +159,39 @@ export default function Test() {
   tempArray = ShuffleArray(tempArray);
   let resParameter = "";
   function createUrl() {
-
-    let url = "/result/" 
+    console.log("cogfunc")
+    console.log(cogFunctions);
+    console.log("state:")
+    console.log(savingCogFunc);
+    let url = "/result/"
     let funcUrl =
-      "Ne=" + cogFunctions.get("Ne") +
-      "&Ni=" + cogFunctions.get("Ni") +
-      "&Se=" + cogFunctions.get("Se") +
-      "&Si=" + cogFunctions.get("Si") +
-      "&Te=" + cogFunctions.get("Te") +
-      "&Ti=" + cogFunctions.get("Ti") +
-      "&Fe=" + cogFunctions.get("Fe") +
-      "&Fi=" + cogFunctions.get("Fi");
+      "Ne=" + savingCogFunc.get("Ne") +
+      "&Ni=" + savingCogFunc.get("Ni") +
+      "&Se=" + savingCogFunc.get("Se") +
+      "&Si=" + savingCogFunc.get("Si") +
+      "&Te=" + savingCogFunc.get("Te") +
+      "&Ti=" + savingCogFunc.get("Ti") +
+      "&Fe=" + savingCogFunc.get("Fe") +
+      "&Fi=" + savingCogFunc.get("Fi");
 
     router.push(url + funcUrl)
 
   }
 
   function changePart(item) {
+    console.log("cogfunc")
+    console.log(cogFunctions);
+    console.log("state:")
+    console.log(savingCogFunc);
     let currentPage = part;
     if (item == "next") {
-      setSavingCogFunc(cogFunctions);
+     
       setPart(currentPage + 1);
     }
     else {
-     
+
       cogFunctions = savingCogFunc;
-      
+
       setPart(currentPage - 1);
     }
   }
@@ -208,7 +215,7 @@ export default function Test() {
 
         </div>
         {/* Part 2 */}
-        
+
         <DuoFunctions part={part} cogFunctions={savingCogFunc} />
 
         <div className={"flex justify-around"}>
