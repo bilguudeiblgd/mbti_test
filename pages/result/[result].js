@@ -4,10 +4,7 @@ import React from 'react'
 
 export default function Result({result}) {
 
-  console.log(result);
-  if(!result){
-    console.error("result is empty. Can't read parameter")
-  }
+  result = decodeURIComponent(result);
   let cogFunctions = new Map();
   let cogArr = result.split("&");
   cogArr.forEach((item) => {
@@ -39,7 +36,6 @@ export default function Result({result}) {
 
   const calculate = () => {
     
-    let result;
     for(let item of mbtiInFunctions)
     {
       for(let key in item){
@@ -60,7 +56,7 @@ export default function Result({result}) {
       }
     }
 
-    return result;
+
   }
   return (
     

@@ -7,15 +7,18 @@ import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
+import DuoFunctions from '../components/DuoFunctions';
+import Question from '../components/Question';
 
 
 export default function Test() {
-  // const [stateCogFunc, setStateCogFunc] = useState(new Map());
+
   const router = useRouter();
-  const [soloQuestions, setSoloQuestions] = useState([])
+  const [soloQuestions, setSoloQuestions] = useState([]);
+  const [savingCogFunc, setSavingCogFunc] = useState(new Map());
+  const [part, setPart] = useState(1);
   let cogFunctions = new Map();
-  console.log("rendering again")
+
   cogFunctions.set("Ne", 0);
   cogFunctions.set("Ni", 0);
   cogFunctions.set("Se", 0);
@@ -24,6 +27,7 @@ export default function Test() {
   cogFunctions.set("Ti", 0);
   cogFunctions.set("Fe", 0);
   cogFunctions.set("Fi", 0);
+  
   let tempArray = [{
     cogfunc: "Ne",
     question: "Миний толгойгоор дүүрэн шинэ санаанууд байдаг",
@@ -98,14 +102,16 @@ export default function Test() {
   let questionChecked = [];
   let questionChoosen = [];
   let scoreChoice = [-1.0, -0.6, 0, 0.6, 1.0];
-  let Ne, Ni;
+
   useEffect(() => {
     tempArray = ShuffleArray(tempArray);
     setSoloQuestions(tempArray);
+    setSavingCogFunc(cogFunctions);
   }, [])
 
   const onClickRadio = (choice, questionNum, cogfunc) => {
-
+ 
+    cogFunctions = savingCogFunc;
     // check whether it's change or new
     if (questionChecked[questionNum]) {
       if (questionChoosen[questionNum] == choice) return;
@@ -122,8 +128,8 @@ export default function Test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
-
     console.log(cogFunctions);
+
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {
     let current = cogFunctions.get(cogfunc);
@@ -154,7 +160,8 @@ export default function Test() {
   let resParameter = "";
   function createUrl() {
 
-    let url = "/result/" +
+    let url = "/result/" 
+    let funcUrl =
       "Ne=" + cogFunctions.get("Ne") +
       "&Ni=" + cogFunctions.get("Ni") +
       "&Se=" + cogFunctions.get("Se") +
@@ -164,10 +171,23 @@ export default function Test() {
       "&Fe=" + cogFunctions.get("Fe") +
       "&Fi=" + cogFunctions.get("Fi");
 
-    router.push(url)
+    router.push(url + funcUrl)
 
   }
 
+  function changePart(item) {
+    let currentPage = part;
+    if (item == "next") {
+      setSavingCogFunc(cogFunctions);
+      setPart(currentPage + 1);
+    }
+    else {
+     
+      cogFunctions = savingCogFunc;
+      
+      setPart(currentPage - 1);
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -175,21 +195,32 @@ export default function Test() {
         <div>
           header background
         </div>
-
-        <div className={"max-w-4xl mx-auto"}>
+        {/* PART NEG */}
+        <div style={part != 1 ? { display: 'none' } : { display: 'block' }} className={"max-w-4xl mx-auto"}>
           {soloQuestions.map((item, index) => {
             let sendIndex = index + 1;
-            return <QuestionComponent key={index} index={sendIndex} cogfunc={item.cogfunc} question={item.question}
+            return <Question key={index} index={sendIndex} cogfunc={item.cogfunc} question={item.question}
               onClickRadio={(choice, questionNum, cogfunc) => onClickRadio(choice, questionNum, cogfunc)} />
           })}
           {/* <SubmitCalculation cogFunctions={cogFunctions} /> */}
-          <div className={"flex justify-center"}>
-            <button className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={createUrl}>
-              <a>Дуусгах</a>
-            </button>
-          </div>
 
 
+
+        </div>
+        {/* Part 2 */}
+        
+        <DuoFunctions part={part} cogFunctions={savingCogFunc} />
+
+        <div className={"flex justify-around"}>
+          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
+            <a> Өмнөх </a>
+          </button>
+          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
+            <a>Дараах </a>
+          </button>
+          <button style={part == 3 ? { display: "block" } : { display: "none" }} className={"bg-green-400 text-white text-2xl px-6 py-2 rounded-full"} onClick={() => createUrl()}>
+            <a>Дуусгах </a>
+          </button>
         </div>
       </main>
     </div>
@@ -197,38 +228,3 @@ export default function Test() {
 }
 
 
-
-const QuestionComponent = (props) => {
-
-  const { index, cogfunc, question } = props;
-
-
-  const onChangeHandler = (e) => {
-
-    let choice = e.target.id[(e.target.id).length - 1];
-
-    props.onClickRadio(choice, index, cogfunc);
-
-  }
-
-
-  return <>
-    <div className={"question-card-container flex flex-col items-center"} >
-      <h1 className={"text-center text-1xl md:text-2xl font-semibold my-6"}>{index}. {question}</h1>
-      <div>
-        <div onChange={onChangeHandler} className="question-radio flex flex-row justify-center items-center">
-          <input className={styles.input1} type="radio" id={`choice${index}-1`} name={`question-${index}`} />
-          <input className={styles.input2} type="radio" id={`choice${index}-2`} name={`question-${index}`} />
-          <input className={styles.input3} type="radio" id={`choice${index}-3`} name={`question-${index}`} />
-          <input className={styles.input4} type="radio" id={`choice${index}-4`} name={`question-${index}`} />
-          <input className={styles.input5} type="radio" id={`choice${index}-5`} name={`question-${index}`} />
-        </div>
-        <div className="flex flex-row justify-between px-4">
-          <h1>Үгүй</h1>
-          <h1>Тийм</h1>
-        </div>
-      </div>
-      <div className={"border-b-2 m-10"} style={{ width: "100%" }}></div>
-    </div>
-  </>
-}
