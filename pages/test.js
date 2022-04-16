@@ -1,18 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
-
+import Router from 'next/router';
 import Link from 'next/link';
 import styles from "../styles/test.module.css";
 import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
 import { useEffect, useState } from 'react';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+
+
 
 export default function test() {
-
-  const[soloQuestions, setSoloQuestions] = useState([])
-
+  // const [stateCogFunc, setStateCogFunc] = useState(new Map());
+  const router = useRouter();
+  const [soloQuestions, setSoloQuestions] = useState([])
   let cogFunctions = new Map();
+  console.log("rendering again")
   cogFunctions.set("Ne", 0);
   cogFunctions.set("Ni", 0);
   cogFunctions.set("Se", 0);
@@ -91,18 +94,18 @@ export default function test() {
     cogfunc: "Fi",
     question: "Шударга байдал надад эвтэй байхаас чухал"
   },];
-  
+
   let questionChecked = [];
   let questionChoosen = [];
   let scoreChoice = [-1.0, -0.6, 0, 0.6, 1.0];
-
+  let Ne, Ni;
   useEffect(() => {
     tempArray = ShuffleArray(tempArray);
     setSoloQuestions(tempArray);
   }, [])
 
   const onClickRadio = (choice, questionNum, cogfunc) => {
-    
+
     // check whether it's change or new
     if (questionChecked[questionNum]) {
       if (questionChoosen[questionNum] == choice) return;
@@ -119,6 +122,7 @@ export default function test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
+
     console.log(cogFunctions);
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {
@@ -147,21 +151,24 @@ export default function test() {
     return array;
   }
   tempArray = ShuffleArray(tempArray);
-  
-  const functionResult=() =>
+  let resParameter = "";
+  function createUrl()
   {
-    let res;
-    res = "/result/Ne=" + cogFunctions.get("Ne") + "-Ni=" + 
-    cogFunctions.get("Ni") + 
-    "-Si=" + cogFunctions.get("Si") +
-    "-Se=" + cogFunctions.get("Se") +
-    "-Ti=" + cogFunctions.get("Ti") +
-    "-Te=" + cogFunctions.get("Te") + 
-    "-Fi=" +  cogFunctions.get("Fi") + 
-    "-Fe=" + cogFunctions.get("Fe");
-    return res;
+    
+    let url = "/result/" + 
+    "Ne=" + cogFunctions.get("Ne") +
+    "&Ni=" + cogFunctions.get("Ni") + 
+    "&Se=" + cogFunctions.get("Se") + 
+    "&Si=" + cogFunctions.get("Si") + 
+    "&Te=" + cogFunctions.get("Te") + 
+    "&Ti=" + cogFunctions.get("Ti") + 
+    "&Fe=" + cogFunctions.get("Fe") + 
+    "&Fi=" + cogFunctions.get("Fi");
+    
+    router.push(url)
+    
   }
-  
+
   return (
     <div>
       <Navbar />
@@ -176,15 +183,16 @@ export default function test() {
             return <QuestionComponent key={index} index={sendIndex} cogfunc={item.cogfunc} question={item.question}
               onClickRadio={(choice, questionNum, cogfunc) => onClickRadio(choice, questionNum, cogfunc)} />
           })}
-          <Link href={functionResult()}>
+          {/* <SubmitCalculation cogFunctions={cogFunctions} /> */}
+          <button onClick={createUrl}>
             <a>Submit</a>
-          </Link>
-          
+          </button>
         </div>
       </main>
     </div>
   )
 }
+
 
 
 const QuestionComponent = (props) => {

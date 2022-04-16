@@ -26,14 +26,14 @@ export default function Home() {
               <h4 className={"text-1xl"}>
                 Бид уг тестийг сайн дураараа хийсэн болно. Мэдээж бусад тесттэй адилхан mistype хийгдэх асуудал гарахыг үгүйсгүй. Тиймэрхүү асуудал болгон дээр бид нар хариуцлага хүлээхгүй болохыг мэдэгдэе.
               </h4>
-              <div className={"w-40"}>
+              <div className={"w-40 mt-6"}>
               <TestButton/>
               </div>
              
             </div>
 
           </div>
-          <div className={"flex justify-start"}>
+          <div className={"flex justify-center"}>
             <Image className={"rounded-full"} src={Logo} width={400} height={400} />
           </div>
         </div>
@@ -43,16 +43,7 @@ export default function Home() {
 
 
       <footer className={""}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={""}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+       
       </footer>
     </div>
   )
