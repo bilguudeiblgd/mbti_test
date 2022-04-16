@@ -2,11 +2,9 @@ import { useRouter } from "next/router";
 import Navbar from '../../components/Navbar';
 import React from 'react'
 
-export default function Result() {
+export default function Result({result}) {
 
-  const router = useRouter();
-  const {result} = router.query;
-  console.log(router.query);
+  console.log(result);
   if(!result){
     console.error("result is empty. Can't read parameter")
   }
@@ -52,16 +50,16 @@ export default function Result() {
         //   if(cogfunc)
         //   formula += cogFunctions.get(cogfunc);
         // }
-        console.log(item[key][0]);
+      
         formula += cogFunctions.get(item[key][0]) * 1;
         formula += cogFunctions.get(item[key][1]) * 0.8;
         formula += cogFunctions.get(item[key][2]) * 0.6;
         formula += cogFunctions.get(item[key][3]) * 0.4;
-        
+        formula = Math.round(formula * 10) / 10;
         personalities.set(key, formula);
       }
     }
-    console.log(personalities);
+
     return result;
   }
   return (
@@ -73,12 +71,18 @@ export default function Result() {
           <h1 className={"text-4xl"}>Таны хариу</h1>
           {calculate()}
           {
-            [...personalities.keys()].map((key) => {
-              return <h1>{key}:{personalities.get(key)}</h1>
+            [...personalities.keys()].map((key, index) => {
+              return <h1 key={index}>{key}:{personalities.get(key)}</h1>
             })
           }
         </div>
       </main>
     </div>
   )
+}
+
+Result.getInitialProps = async ({ query }) => {
+  const {result} = query
+
+  return {result}
 }

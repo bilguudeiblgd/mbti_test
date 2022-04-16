@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Logo from '../public/logo.jpg';
 import { FaDiscord } from 'react-icons/fa';
 import TestButton from './TestButton.js';
-export default function
-    () {
+export default function Navbar() {
     return (
         <div>
             <nav className={"container mx-auto px-4 py-2"}>

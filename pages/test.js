@@ -5,12 +5,12 @@ import Link from 'next/link';
 import styles from "../styles/test.module.css";
 import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 
 
-export default function test() {
+export default function Test() {
   // const [stateCogFunc, setStateCogFunc] = useState(new Map());
   const router = useRouter();
   const [soloQuestions, setSoloQuestions] = useState([])
