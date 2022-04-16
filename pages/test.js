@@ -152,21 +152,20 @@ export default function Test() {
   }
   tempArray = ShuffleArray(tempArray);
   let resParameter = "";
-  function createUrl()
-  {
-    
-    let url = "/result/" + 
-    "Ne=" + cogFunctions.get("Ne") +
-    "&Ni=" + cogFunctions.get("Ni") + 
-    "&Se=" + cogFunctions.get("Se") + 
-    "&Si=" + cogFunctions.get("Si") + 
-    "&Te=" + cogFunctions.get("Te") + 
-    "&Ti=" + cogFunctions.get("Ti") + 
-    "&Fe=" + cogFunctions.get("Fe") + 
-    "&Fi=" + cogFunctions.get("Fi");
-    
+  function createUrl() {
+
+    let url = "/result/" +
+      "Ne=" + cogFunctions.get("Ne") +
+      "&Ni=" + cogFunctions.get("Ni") +
+      "&Se=" + cogFunctions.get("Se") +
+      "&Si=" + cogFunctions.get("Si") +
+      "&Te=" + cogFunctions.get("Te") +
+      "&Ti=" + cogFunctions.get("Ti") +
+      "&Fe=" + cogFunctions.get("Fe") +
+      "&Fi=" + cogFunctions.get("Fi");
+
     router.push(url)
-    
+
   }
 
   return (
@@ -184,9 +183,13 @@ export default function Test() {
               onClickRadio={(choice, questionNum, cogfunc) => onClickRadio(choice, questionNum, cogfunc)} />
           })}
           {/* <SubmitCalculation cogFunctions={cogFunctions} /> */}
-          <button onClick={createUrl}>
-            <a>Submit</a>
-          </button>
+          <div className={"flex justify-center"}>
+            <button className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={createUrl}>
+              <a>Дуусгах</a>
+            </button>
+          </div>
+
+
         </div>
       </main>
     </div>
@@ -211,7 +214,7 @@ const QuestionComponent = (props) => {
 
   return <>
     <div className={"question-card-container flex flex-col items-center"} >
-      <h1 className={"text-center text-2xl font-semibold my-6"}>{index}. {question}</h1>
+      <h1 className={"text-center text-1xl md:text-2xl font-semibold my-6"}>{index}. {question}</h1>
       <div>
         <div onChange={onChangeHandler} className="question-radio flex flex-row justify-center items-center">
           <input className={styles.input1} type="radio" id={`choice${index}-1`} name={`question-${index}`} />

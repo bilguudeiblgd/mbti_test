@@ -16,10 +16,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className={"container mx-auto px-4 my-12"}>
-        <div className={"grid grid-cols-2 gap-6"}>
-          <div className={"flex flex-col items-end mt-6"}>
-            <div className={"ml-12"}>
+      <main className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 my-12"}>
+        <div className={"grid md:grid-cols-2 gap-6 mb-20"}>
+          <div className={"flex flex-col mt-6"}>
+            <div className={""}>
               <h1 className={"text-6xl mb-6"}>
                 Бидний бэлтгэсэн Тест
               </h1>
@@ -27,23 +27,28 @@ export default function Home() {
                 Бид уг тестийг сайн дураараа хийсэн болно. Мэдээж бусад тесттэй адилхан mistype хийгдэх асуудал гарахыг үгүйсгүй. Тиймэрхүү асуудал болгон дээр бид нар хариуцлага хүлээхгүй болохыг мэдэгдэе.
               </h4>
               <div className={"w-40 mt-6"}>
-              <TestButton/>
+                <Link href="/test">
+                  <a>  <TestButton /></a>
+                </Link>
               </div>
-             
-            </div>
 
+            </div>
           </div>
           <div className={"flex justify-center"}>
-            <Image className={"rounded-full"} src={Logo} width={400} height={400} />
+            <div>
+              <Image className={"rounded-full"} alt="MBTI Mongolia Logo big" src={Logo} width={400} height={400} />
+            </div>
           </div>
         </div>
-
+        <div>
+          Бидний тухай
+        </div>
 
       </main>
 
 
       <footer className={""}>
-       
+
       </footer>
     </div>
   )
