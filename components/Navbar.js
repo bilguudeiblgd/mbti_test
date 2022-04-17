@@ -30,7 +30,7 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li className={"hidden md:block"}>
-                            <a target="_blank" href="https://discord.gg/a3tUXncYBG" className={"cursor-pointer "}>
+                            <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/a3tUXncYBG" className={"cursor-pointer "}>
                                 <FaDiscord color="#6C82CF" size={"3rem"} />
                             </a>
                         </li>
