@@ -20,11 +20,12 @@ export default function Home() {
         <div className={"grid md:grid-cols-2 gap-6 mb-20"}>
           <div className={"flex flex-col mt-6"}>
             <div className={""}>
-              <h1 className={"text-6xl mb-6"}>
-                Бидний бэлтгэсэн Тест
+              <h1 className={"text-6xl font-semibold mb-6"}>
+                Зан чанарын тест
               </h1>
-              <h4 className={"text-1xl"}>
-                Бид уг тестийг сайн дураараа хийсэн болно. Мэдээж бусад тесттэй адилхан mistype хийгдэх асуудал гарахыг үгүйсгүй. Тиймэрхүү асуудал болгон дээр бид нар хариуцлага хүлээхгүй болохыг мэдэгдэе.
+              <h4 className={"text-1xl text-gray-600"}>
+                Бид уг тестийг сайн дураараа хийсэн болно. Уг тестийг Jungian Typology буюу Cognitive personality theory-ээс эх аван хийсэн. Өөрийнхөө жинхэнэ зан чанараа олж мэдэхийн тулд цаг заваа гаргаж, шударгаар хариулаарай!
+                Жич: Зан чанарын хариу дангаар гарах тул илүү мэдээллийг манай Instagram хуудсаас олж уншаарай.
               </h4>
               <div className={"w-40 mt-6"}>
                 <Link href="/test">
@@ -36,7 +37,7 @@ export default function Home() {
           </div>
           <div className={"flex justify-center"}>
             <div>
-              <Image className={"rounded-full"} alt="MBTI Mongolia Logo big" src={Logo} width={400} height={400} />
+              <Image className={"rounded-full "} alt="MBTI Mongolia Logo big" src={Logo} width={400} height={400} />
             </div>
           </div>
         </div>
@@ -45,7 +46,7 @@ export default function Home() {
         </div>
 
       </main>
-{/* to deploy */}
+      {/* to deploy */}
 
       <footer className={""}>
 
