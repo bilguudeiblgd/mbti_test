@@ -8,7 +8,7 @@ export default function CaseStudy({ part, cogFunctions }) {
     const [caseQuestions, setCaseQuestions] = useState([]);
     let questionChecked = [];
     let questionChoosen = [];
-    let scoreChoice = [-1.0, 1.0];
+    let scoreChoice = [-1.0, -0.5, 0, 0.5, 1.0];
     const onClickRadio = (choice, questionNum, cogfunc1, cogfunc2) => {
         if (questionChecked[questionNum]) {
             if (questionChoosen[questionNum] == choice) return;
@@ -65,15 +65,25 @@ export default function CaseStudy({ part, cogFunctions }) {
                     <h1 className={"text-center text-1xl md:text-2xl font-semibold mb-6"}>{base + index}. {item.question1}</h1>
                     <div className={"flex flex-row mt-4 items-center"}>
                         <div className={"flex flex-row items-center "}>
-                            <p className={"mr-4 text-left w-60"}>{item.answer1}</p>
-                            <input type="radio" onClick={() => onClickRadio(1, index + base, item.cogfunc1, item.cogfunc2)} className={styles.input1} id={`choice${index + base}-1`} name={`question-${index + base}`} />
+                            <p className={"mr-4 hidden md:block text-left w-60"}>{item.answer1}</p>
+                            <input type="radio" onClick={() => onClickRadio(1, index + base, item.cogfunc2, item.cogfunc1)} className={styles.input1} id={`choice${index + base}-1`} name={`question-${index + base}`} />
                         </div>
-                        <div onChange={onClickRadio} className={"border-b-2 w-24"}></div>
+                        <div style={{ borderBottomColor: "#8b4766" }} className={"border-b-2 w-4 middle-line"}></div>
+                        <input type="radio" onClick={() => onClickRadio(2, index + base, item.cogfunc2, item.cogfunc1)} className={styles.input2} id={`choice${index + base}-1`} name={`question-${index + base}`} />
+                        <div style={{ borderBottomColor: "#8b4766" }} className={"border-b-2 w-4 middle-line"}></div>
+                        <input type="radio" onClick={() => onClickRadio(3, index + base, item.cogfunc2, item.cogfunc1)} className={styles.input3} id={`choice${index + base}-1`} name={`question-${index + base}`} />
+                        <div style={{ borderBottomColor: "#649821" }} className={"border-b-2 w-4 middle-line"}></div>
+                        <input type="radio" onClick={() => onClickRadio(4, index + base, item.cogfunc2, item.cogfunc1)} className={styles.input4} id={`choice${index + base}-1`} name={`question-${index + base}`} />
+                        <div style={{ borderBottomColor: "#649821" }} className={"border-b-2 w-4 middle-line"}></div>
                         <div className={"flex flex-row items-center "}>
-                            <input type="radio" onClick={() => onClickRadio(2, index + base, item.cogfunc1, item.cogfunc2)} className={styles.input5} id={`choice${index + base}-2`} name={`question-${index + base}`} />
-                            <p className={"ml-4 text-right w-60"}>{item.answer2}</p>
+                            <input type="radio" onClick={() => onClickRadio(5, index + base, item.cogfunc2, item.cogfunc1)} className={styles.input5} id={`choice${index + base}-2`} name={`question-${index + base}`} />
+                            <p className={"ml-4 hidden md:block text-right w-60"}>{item.answer2}</p>
                         </div>
 
+                    </div>
+                    <div className={"block md:hidden flex flex-row justify-between w-max"}>
+                    <p className={"text-left w-40"}>{item.answer1}</p>
+                    <p className={"text-right w-40"}>{item.answer2}</p>
                     </div>
                     <div className={"border-b-2 m-10"} style={{ width: "100%" }}></div>
                 </div>

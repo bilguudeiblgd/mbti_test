@@ -80,7 +80,7 @@ export default function Result({ result }) {
                     [...personalities.keys()].map((key, index) => {
                       return <div key={index}>
                         {
-                          index <= 8
+                          index <= 7
                             ?
                             <div>
                               <h2 style={
@@ -96,12 +96,12 @@ export default function Result({ result }) {
                     })
                   }
                 </div>
-                <div>
+                <div className={"py-2"}>
                   {
                     [...personalities.keys()].map((key, index) => {
                       return <div key={index}>
                         {
-                          index > 8
+                          index > 7
                             ?
                             <div>
                               <h2 className={"mb-2"} key={index}>{index + 1}. {key}:{personalities.get(key)}%</h2>

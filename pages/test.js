@@ -201,7 +201,7 @@ export default function Test() {
       <Navbar />
       <main className={"container mx-auto py-6"}>
         <div>
-          header background
+          {/* header background */}
         </div>
         {/* PART NEG */}
         <div style={part != 1 ? { display: 'none' } : { display: 'block' }} className={"max-w-4xl mx-auto"}>
