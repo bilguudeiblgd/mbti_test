@@ -27,14 +27,14 @@ export default function DuoFunctions({ part, cogFunctions }) {
         let current1 = cogFunctions.get(cogfunc1);
         let current2 = cogFunctions.get(cogfunc2);
         cogFunctions.set(cogfunc1, current1 + (scoreChoice[choice - 1]));
-        cogFunctions.set(cogfunc2, current2 + (scoreChoice[choice - 1] / 2));
+        cogFunctions.set(cogfunc2, current2 + (scoreChoice[choice - 1] / (10/7)));
         console.log(cogFunctions);
     }
     const deleteChange = (cogfunc1, cogfunc2, questionNum, preChoice, choice) => {
         let current1 = cogFunctions.get(cogfunc1);
         let current2 = cogFunctions.get(cogfunc2);
         cogFunctions.set(cogfunc1, current1 - (scoreChoice[preChoice - 1]));
-        cogFunctions.set(cogfunc2, current2 - (scoreChoice[preChoice - 1] / 2));
+        cogFunctions.set(cogfunc2, current2 - (scoreChoice[preChoice - 1] / (10/7)));
         addChange(choice, questionNum, cogfunc1, cogfunc2);
     }
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function DuoFunctions({ part, cogFunctions }) {
         <div style={part == 2 ? { display: 'block' } : { display: "none" }}>
             {duoQuestions.map((item, index) => {
 
-                return (<Question key={index} index={index + 24} question={item.question} cogfunc1={item.func1} cogfunc2={item.func2}
+                return (<Question key={index} index={index + 25} question={item.question} cogfunc1={item.func1} cogfunc2={item.func2}
                     onClickRadio={(choice, questionNum, cogfunc1, cogfunc2) => onClickRadio(choice, questionNum, cogfunc1, cogfunc2)} />)
             })}
         </div>

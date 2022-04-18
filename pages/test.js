@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import DuoFunctions from '../components/DuoFunctions';
 import Question from '../components/Question';
+import CaseStudy from '../components/CaseStudy';
 
 
 export default function Test() {
@@ -91,7 +92,12 @@ export default function Test() {
   }, {
     cogfunc: "Fe",
     question: "Надад өөрийнхөө шаардлагыг бусдад тавих хэцүү байдаг"
-  }, {
+  },
+  {
+    cogfunc: "Fi",
+    question: "Би давгүй мэдрэмжтэй"
+  },
+   {
     cogfunc: "Fi",
     question: "Өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
   }, {
@@ -179,21 +185,16 @@ export default function Test() {
   }
 
   function changePart(item) {
-    console.log("cogfunc")
-    console.log(cogFunctions);
-    console.log("state:")
-    console.log(savingCogFunc);
+
     let currentPage = part;
     if (item == "next") {
-     
       setPart(currentPage + 1);
     }
     else {
-
       cogFunctions = savingCogFunc;
-
       setPart(currentPage - 1);
     }
+    window.scrollTo(0, 0)
   }
   return (
     <div>
@@ -217,15 +218,16 @@ export default function Test() {
         {/* Part 2 */}
 
         <DuoFunctions part={part} cogFunctions={savingCogFunc} />
+        <CaseStudy part={part} cogFunctions={savingCogFunc} />
 
         <div className={"flex justify-around"}>
-          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
+          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
             <a>Өмнөх</a>
           </button>
-          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-green-400 text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
+          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
             <a>Дараах</a>
           </button>
-          <button style={part == 3 ? { display: "block" } : { display: "none" }} className={"bg-green-400 text-white text-2xl px-6 py-2 rounded-full"} onClick={() => createUrl()}>
+          <button style={part == 3 ? { display: "block" } : { display: "none" }} className={"bg-[#649821] text-white px-6 py-2 rounded-full"} onClick={() => createUrl()}>
             <a>Дуусгах</a>
           </button>
         </div>

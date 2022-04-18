@@ -31,7 +31,7 @@ export default function Navbar() {
                         </li>
                         <li className={"hidden md:block"}>
                             <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/a3tUXncYBG" className={"cursor-pointer "}>
-                                <FaDiscord color="#6C82CF" size={"3rem"} />
+                                <FaDiscord className={""} style={{color: "rgb(210,162,55)"}} size={"3rem"} />
                             </a>
                         </li>
                     </div>

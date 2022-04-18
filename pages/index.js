@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-
 import Link from 'next/link';
 import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
 import TestButton from '../components/TestButton';
+import {BsSearch} from 'react-icons/bs';
+
 export default function Home() {
-
-
   return (
     <div className={""}>
       <Head>
@@ -41,15 +40,19 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
-          Бидний тухай
+        <div className={"flex flex-col items-center justify-center"}>
+          <h1 className={"text-center font-thin mb-3"}>Өмнөх хариун Код:</h1>
+          <div className={"w-96 flex flex-row justify-between items-center border-2 rounded-2xl"}>
+            <input className={"rounded-2xl flex-1 outline-none px-3"} type="input" />
+            <a style={{backgroundColor: "rgb(65,142,89)", color: 'white'}} className={"cursor-pointer outline-0 rounded-2xl px-2 py-1 flex justify-center text-center max-h-full"}><BsSearch size={"25px"}/></a>
+          </div>
         </div>
 
       </main>
       {/* to deploy */}
 
       <footer className={""}>
-
+        
       </footer>
     </div>
   )
