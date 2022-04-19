@@ -171,14 +171,14 @@ export default function Test() {
     console.log(savingCogFunc);
     let url = "/result/"
     let funcUrl =
-      "Ne=" + savingCogFunc.get("Ne") +
-      "&Ni=" + savingCogFunc.get("Ni") +
-      "&Se=" + savingCogFunc.get("Se") +
-      "&Si=" + savingCogFunc.get("Si") +
-      "&Te=" + savingCogFunc.get("Te") +
-      "&Ti=" + savingCogFunc.get("Ti") +
-      "&Fe=" + savingCogFunc.get("Fe") +
-      "&Fi=" + savingCogFunc.get("Fi");
+      "Ne=" + Math.floor(savingCogFunc.get("Ne") * 10) / 10 +
+      "&Ni=" + Math.floor(savingCogFunc.get("Ni") * 10) / 10 +
+      "&Se=" + Math.floor(savingCogFunc.get("Se") * 10) / 10 +
+      "&Si=" + Math.floor(savingCogFunc.get("Si") * 10) / 10 +
+      "&Te=" + Math.floor(savingCogFunc.get("Te") * 10) / 10 +
+      "&Ti=" + Math.floor(savingCogFunc.get("Ti") * 10) / 10 +
+      "&Fe=" + Math.floor(savingCogFunc.get("Fe") * 10) / 10 +
+      "&Fi=" + Math.floor(savingCogFunc.get("Fi") * 10) / 10;
 
     router.push(url + funcUrl)
 
