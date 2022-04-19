@@ -110,47 +110,58 @@ export default function Result({ result }) {
 
       // Add middle functions
       let middleFuncSum1 = cogFunctions.get(cogWithMax1[1]) + cogFunctions.get(cogWithMax1[2]);
+
       let middleFuncSum2 = cogFunctions.get(cogWithMax2[1]) + cogFunctions.get(cogWithMax2[2]);
+
       if (middleFuncSum1 > middleFuncSum2) credit1++
       else credit2++;
+      console.log("Combo score");
+      console.table([credit1, credit2]);
       // Check 2nd and 3rd function with inferior
       if (cogFunctions.get(cogWithMax1[1]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
-      else credit1 = credit1 - 1;
+      else credit1 = credit1 - 0.5;
       if (cogFunctions.get(cogWithMax1[2]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
-      else credit1 = credit1 - 1;
+      else credit1 = credit1 - 0.5;
 
       if (cogFunctions.get(cogWithMax2[1]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
-      else credit2 = credit2 - 1;
+      else credit2 = credit2 - 0.5;
       if (cogFunctions.get(cogWithMax2[2]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
-      else credit2 = credit2 - 1;
-      console.log(credit1);
+      else credit2 = credit2 - 0.5;
+
+      console.log("Checking with inferior");
+      console.table([credit1, credit2]);
       // Check if the twin is the lowest
 
       let twinOfAuxCog1 = cogFunctions.get(twinFunctions.get(cogWithMax1[1]));
       let twinOfAuxCog2 = cogFunctions.get(twinFunctions.get(cogWithMax2[1]));
 
-      if (twinOfAuxCog1 == cogniSortedArray[7][1]) credit1++;
-      if (twinOfAuxCog1 == cogniSortedArray[6][1]) credit1++;
-      if (twinOfAuxCog2 == cogniSortedArray[7][1]) credit2++;
-      if (twinOfAuxCog2 == cogniSortedArray[6][1]) credit2++;
-      console.log(credit1);
+      if (twinOfAuxCog1 == cogniSortedArray[7][1]) credit1 = credit1 + 0.5;
+      else if (twinOfAuxCog1 == cogniSortedArray[6][1]) credit1 = credit1 + 0.5;
+      if (twinOfAuxCog2 == cogniSortedArray[7][1]) credit2 = credit2 + 0.5;
+      else if (twinOfAuxCog2 == cogniSortedArray[6][1]) credit2 = credit2 + 0.5;
+      console.log("Checking with Twin");
+      console.table([credit1, credit2]);
       // Check where is the 2nd function
       let place1;
       let place2;
       for (let item in cogniSortedArray) {
-
+        console.log(item);
         if (cogWithMax1[1] == cogniSortedArray[item][0]) {
-          place1 = item + 1;
+          place1 = parseInt(item) + 1;
 
         }
         if (cogWithMax2[1] == cogniSortedArray[item][0]) {
-          place2 = item + 1;
+          place2 = parseInt(item) + 1;
         }
       }
+      console.log("place" + place1);
       let score1 = (2 - (place1)) * 0.5;
       let score2 = (2 - (place2)) * 0.5;
       credit1 += score1;
       credit2 += score2;
+      console.log("Checking the position");
+      console.table([credit1, credit2]);
+
       if (credit1 > credit2) {
         console.log(mbtiWithMax1);
         resultCyber.push({ mbti: mbtiWithMax1, score: credit1 });
@@ -160,6 +171,7 @@ export default function Result({ result }) {
         resultCyber.push({ mbti: mbtiWithMax2, score: credit2 });
       }
       console.log(credit1);
+      console.log(credit2);
     }
 
 
