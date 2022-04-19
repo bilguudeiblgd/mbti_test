@@ -5,9 +5,10 @@ import Link from 'next/link';
 import Logo from '../public/logo.jpg';
 import { FaDiscord } from 'react-icons/fa';
 import TestButton from './TestButton.js';
+import styles from '../styles/navbar.module.css';
 export default function Navbar() {
     return (
-        <div>
+        <div className={styles.navbar_shadow}>
             <nav className={"container mx-auto px-4 py-2"}>
                 <ul className={"flex flex-row justify-between"}>
                     <div className={"flex flex-row items-center"}>
