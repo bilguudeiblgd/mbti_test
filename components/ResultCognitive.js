@@ -19,8 +19,8 @@ export default function ResultCognitive({ cogFunctions }) {
 
               let value = Math.floor((item[1] / 15.8) * 100 * 10) / 10;
               return (
-                <div className={"flex flex-col mr-2 mb-2"}>
-                  <label for={item[0]}>
+                <div key={index} className={"flex flex-col mr-2 mb-2"}>
+                  <label htmlFor={item[0]}>
                     <p className={"text-sm"}>
                       {item[0]} - {value}%
                     </p>
@@ -29,7 +29,7 @@ export default function ResultCognitive({ cogFunctions }) {
                     className={""}
                     type="range"
                     max="100"
-                    value={value}
+                    defaultValue={value}
                     name={item[0]}
                   />
                 </div>
@@ -42,13 +42,13 @@ export default function ResultCognitive({ cogFunctions }) {
 
               let value = Math.floor(((item[1] + 15.8) / 31.6) * 100 * 10) / 10;
               return (
-                <div className={"flex flex-col ml-2 mb-2"}>
-                  <label for={item[0]}>
+                <div key={index} className={"flex flex-col ml-2 mb-2"}>
+                  <label htmlFor={item[0]}>
                     <p className={"text-sm"}>
                       {item[0]} - {value}%
                     </p>
                   </label>
-                  <input type="range" max="100" value={value} name={item[0]} />
+                  <input type="range" max="100" defaultValue={value} name={item[0]} />
                   
                 </div>
               );
