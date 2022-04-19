@@ -5,16 +5,15 @@ import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
 import TestButton from '../components/TestButton';
 import { useState } from 'react';
-import {BsSearch} from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
 
 export default function Home() {
 
   const [preTest, setPreTest] = useState("");
 
-  const checkPreviousTest =() =>{
+  const checkPreviousTest = () => {
     let answer = window.localStorage.getItem('previousTest')
-    if(answer)
-    {
+    if (answer) {
       setPreTest(answer);
     }
     console.log(preTest);
@@ -25,20 +24,9 @@ export default function Home() {
       <Head>
         <title>MBTI Тест</title>
         <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
-        <meta name="keywords" content="MBTI Mongolia, 16 Personalities"/>
+        <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
         <link rel="icon" href="/favicon.ico" />
-        <script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
 
-            <script strategy="lazyOnload">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-FXF025NT1W', {
-                    page_path: window.location.pathname,
-                    });
-                `}
-            </script>
       </Head>
       <Navbar />
       <main className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 my-12"}>
@@ -70,10 +58,10 @@ export default function Home() {
           <h1 className={"text-center font-thin mb-3"}>Өмнөх хариун Код:</h1>
           <div className={"w-96 flex flex-row justify-between items-center border-2 rounded-2xl"}>
             <input className={"rounded-2xl flex-1 outline-none px-3"} type="input" />
-            <a style={{backgroundColor: "rgb(65,142,89)", color: 'white'}} className={"cursor-pointer outline-0 rounded-2xl px-2 py-1 flex justify-center text-center max-h-full"}><BsSearch size={"25px"}/></a>
+            <a style={{ backgroundColor: "rgb(65,142,89)", color: 'white' }} className={"cursor-pointer outline-0 rounded-2xl px-2 py-1 flex justify-center text-center max-h-full"}><BsSearch size={"25px"} /></a>
           </div>
         </div>
-        
+
       </main>
       {/* to deploy */}
 

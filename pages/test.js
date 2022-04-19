@@ -218,10 +218,10 @@ export default function Test() {
         <CaseStudy part={part} cogFunctions={savingCogFunc} />
 
         <div className={"flex justify-around"}>
-          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
+          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-[#6028ac] text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
             <a>Өмнөх</a>
           </button>
-          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
+          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-[#6028ac] text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
             <a>Дараах</a>
           </button>
           <button style={part == 3 ? { display: "block" } : { display: "none" }} className={"bg-[#649821] text-white px-6 py-2 rounded-full"} onClick={() => createUrl()}>

@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
-import React from "react";
+import React, { useState } from "react";
 import ResultCognitive from "../../components/ResultCognitive";
 
 export default function Result({ result }) {
+
   result = decodeURIComponent(result);
   let cogFunctions = new Map();
   let cogArr = result.split("&");
@@ -31,6 +32,7 @@ export default function Result({ result }) {
     { ESTP: ["Se", "Ti", "Fe", "Ni"] },
     { ESFP: ["Se", "Fi", "Te", "Ni"] },
   ];
+
   let personalities = new Map();
 
   const calculate = () => {
@@ -59,9 +61,110 @@ export default function Result({ result }) {
       [...personalities.entries()].sort((a, b) => b[1] - a[1])
     );
 
-    console.log(personalitiesSorted);
+
     personalities = personalitiesSorted;
   };
+  let resultCyber = [];
+
+  const calculateCyber = () => {
+    // Initializing
+
+    let twinFunctions = new Map();
+    twinFunctions.set('Fi', 'Ti'); twinFunctions.set('Ti', 'Fi');
+    twinFunctions.set('Ni', 'Si'); twinFunctions.set('Si', 'Ni');
+    twinFunctions.set('Se', 'Ne'); twinFunctions.set('Ne', 'Se');
+    twinFunctions.set('Fe', 'Te'); twinFunctions.set('Te', 'Fe');
+    let cognitiesSorted = new Map([...cogFunctions.entries()].sort((a, b) => b[1] - a[1]));
+    let cogniSortedArray = [...cognitiesSorted.entries()];
+    // let twoPossibleIteration = [cogniSortedArray[0][0], cogniSortedArray[0][1]]
+    for (let i = 0; i < 2; i++) {
+      // Find 2 highest scoring functions
+      let maxCog = cogniSortedArray[i][0];
+      console.log(maxCog);
+      let credit1 = 0;
+      let credit2 = 0;
+
+      // Find 2 types that has this dominant function
+      let cogWithMax1 = [];
+      let mbtiWithMax1;
+      let cogWithMax2 = [];
+      let mbtiWithMax2
+      let foundFirst = false;
+
+      for (let item of mbtiInFunctions) {
+        for (let key in item) {
+          if (maxCog == item[key][0] && !foundFirst) {
+            foundFirst = true;
+            cogWithMax1 = item[key];
+            mbtiWithMax1 = key;
+          }
+          if (maxCog == item[key][0]) {
+            cogWithMax2 = item[key];
+            mbtiWithMax2 = key;
+          }
+        }
+      }
+      // Defining
+      console.log(cogWithMax1);
+      console.log(cogWithMax2);
+
+      // Add middle functions
+      let middleFuncSum1 = cogFunctions.get(cogWithMax1[1]) + cogFunctions.get(cogWithMax1[2]);
+      let middleFuncSum2 = cogFunctions.get(cogWithMax2[1]) + cogFunctions.get(cogWithMax2[2]);
+      if (middleFuncSum1 > middleFuncSum2) credit1++
+      else credit2++;
+      // Check 2nd and 3rd function with inferior
+      if (cogFunctions.get(cogWithMax1[1]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
+      else credit1 = credit1 - 1;
+      if (cogFunctions.get(cogWithMax1[2]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
+      else credit1 = credit1 - 1;
+
+      if (cogFunctions.get(cogWithMax2[1]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
+      else credit2 = credit2 - 1;
+      if (cogFunctions.get(cogWithMax2[2]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
+      else credit2 = credit2 - 1;
+      console.log(credit1);
+      // Check if the twin is the lowest
+
+      let twinOfAuxCog1 = cogFunctions.get(twinFunctions.get(cogWithMax1[1]));
+      let twinOfAuxCog2 = cogFunctions.get(twinFunctions.get(cogWithMax2[1]));
+
+      if (twinOfAuxCog1 == cogniSortedArray[7][1]) credit1++;
+      if (twinOfAuxCog1 == cogniSortedArray[6][1]) credit1++;
+      if (twinOfAuxCog2 == cogniSortedArray[7][1]) credit2++;
+      if (twinOfAuxCog2 == cogniSortedArray[6][1]) credit2++;
+      console.log(credit1);
+      // Check where is the 2nd function
+      let place1;
+      let place2;
+      for (let item in cogniSortedArray) {
+
+        if (cogWithMax1[1] == cogniSortedArray[item][0]) {
+          place1 = item + 1;
+
+        }
+        if (cogWithMax2[1] == cogniSortedArray[item][0]) {
+          place2 = item + 1;
+        }
+      }
+      let score1 = (2 - (place1)) * 0.5;
+      let score2 = (2 - (place2)) * 0.5;
+      credit1 += score1;
+      credit2 += score2;
+      if (credit1 > credit2) {
+        console.log(mbtiWithMax1);
+        resultCyber.push({ mbti: mbtiWithMax1, score: credit1 });
+      }
+      else {
+        console.log(mbtiWithMax2);
+        resultCyber.push({ mbti: mbtiWithMax2, score: credit2 });
+      }
+      console.log(credit1);
+    }
+
+
+  }
+
   return (
     <div>
       <Navbar />
@@ -91,13 +194,13 @@ export default function Result({ result }) {
                               style={
                                 index == 0
                                   ? {
-                                      backgroundColor: "#ffb703",
-                                      borderRadius: "24px",
-                                      paddingTop: "4px",
-                                      paddingBottom: "4px",
-                                      paddingLeft: "12px",
-                                      paddingRight: "12px",
-                                    }
+                                    backgroundColor: "#FFD93D",
+                                    borderRadius: "24px",
+                                    paddingTop: "4px",
+                                    paddingBottom: "4px",
+                                    paddingLeft: "12px",
+                                    paddingRight: "12px",
+                                  }
                                   : {}
                               }
                               className={"mb-2"}
@@ -132,18 +235,19 @@ export default function Result({ result }) {
                 </div>
               </div>
             </div>
-            {/* <div className={"border-2 md:ml-4 w-80 rounded-2xl h-90 p-6"}>
+            {calculateCyber()}
+            <div className={"border-2 md:ml-4 w-80 rounded-2xl h-90 p-6"}>
               <h3 className={"text-1xl font-medium text-center"}>
                 Cyberio{"\'"}s formula
                 <div className={"mt-6 flex flex-col items-center"}>
-                  <h4>Таны зан чанар:</h4>
+                  <p>Таны зан чанар:</p>
                   <div className={"w-full flex justify-center"}>
                     <h2
                       className={
-                        "bg-[#ffb703] w-max px-8 mt-2 rounded-3xl py-2 text-center"
+                        "bg-[#FFD93D] w-max px-8 mt-2 rounded-3xl py-2 text-center"
                       }
                     >
-                      ENTJ
+                      {resultCyber[0].mbti}
                     </h2>
                   </div>
                   <p>байх нь БАТТАЙ</p>
@@ -154,20 +258,20 @@ export default function Result({ result }) {
                         "bg-[#868686] w-max px-8 mt-2 rounded-3xl py-2 text-center"
                       }
                     >
-                      ENTJ
+                      {resultCyber[1].mbti}
                     </h2>
                   </div>
                   <p>байх нь ӨНДӨР МАГАДЛАЛТАЙ</p>
                 </div>
               </h3>
-            </div> */}
+            </div>
           </div>
           {/* section 2 */}
         </div>
         <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
         <div className={"flex flex-col items-center"}>
           <h1 className={"text-4xl text-center mb-8"}>Тестийн оноо</h1>
-          <ResultCognitive cogFunctions = {cogFunctions}/>
+          <ResultCognitive cogFunctions={cogFunctions} />
         </div>
       </main>
     </div>
