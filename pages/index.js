@@ -4,9 +4,22 @@ import Link from 'next/link';
 import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
 import TestButton from '../components/TestButton';
+import { useState } from 'react';
 import {BsSearch} from 'react-icons/bs';
 
 export default function Home() {
+
+  const [preTest, setPreTest] = useState("");
+
+  const checkPreviousTest =() =>{
+    let answer = window.localStorage.getItem('previousTest')
+    if(answer)
+    {
+      setPreTest(answer);
+    }
+    console.log(preTest);
+  }
+
   return (
     <div className={""}>
       <Head>
@@ -48,7 +61,7 @@ export default function Home() {
             <a style={{backgroundColor: "rgb(65,142,89)", color: 'white'}} className={"cursor-pointer outline-0 rounded-2xl px-2 py-1 flex justify-center text-center max-h-full"}><BsSearch size={"25px"}/></a>
           </div>
         </div>
-
+        
       </main>
       {/* to deploy */}
 

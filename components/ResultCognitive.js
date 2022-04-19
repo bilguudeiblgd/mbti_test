@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function ResultCognitive({ cogFunctions }) {
   console.log("reeached");
   console.log(cogFunctions);
@@ -48,8 +47,17 @@ export default function ResultCognitive({ cogFunctions }) {
                       {item[0]} - {value}%
                     </p>
                   </label>
-                  <input type="range" max="100" defaultValue={value} name={item[0]} />
-                  
+                  <input
+                    type="range"
+                    max="100"
+                    value={value}
+                    defaultValue={value}
+                    name={item[0]}
+                  />
+
+                  {/* <div className={"w-32 mt-1 border-2 rounded-xl h-2"}>
+                      <div style={{width: `${value}px`}} className={"bg-dark"}></div>
+                   </div>   */}
                 </div>
               );
             })}

@@ -165,10 +165,7 @@ export default function Test() {
   tempArray = ShuffleArray(tempArray);
   let resParameter = "";
   function createUrl() {
-    console.log("cogfunc")
-    console.log(cogFunctions);
-    console.log("state:")
-    console.log(savingCogFunc);
+    
     let url = "/result/"
     let funcUrl =
       "Ne=" + Math.floor(savingCogFunc.get("Ne") * 10) / 10 +
@@ -179,7 +176,7 @@ export default function Test() {
       "&Ti=" + Math.floor(savingCogFunc.get("Ti") * 10) / 10 +
       "&Fe=" + Math.floor(savingCogFunc.get("Fe") * 10) / 10 +
       "&Fi=" + Math.floor(savingCogFunc.get("Fi") * 10) / 10;
-
+      window.localStorage.setItem('previousTest', url + funcUrl);  
     router.push(url + funcUrl)
 
   }

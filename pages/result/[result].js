@@ -132,7 +132,7 @@ export default function Result({ result }) {
                 </div>
               </div>
             </div>
-            <div className={"border-2 md:ml-4 w-80 rounded-2xl h-90 p-6"}>
+            {/* <div className={"border-2 md:ml-4 w-80 rounded-2xl h-90 p-6"}>
               <h3 className={"text-1xl font-medium text-center"}>
                 Cyberio{"\'"}s formula
                 <div className={"mt-6 flex flex-col items-center"}>
@@ -160,7 +160,7 @@ export default function Result({ result }) {
                   <p>байх нь ӨНДӨР МАГАДЛАЛТАЙ</p>
                 </div>
               </h3>
-            </div>
+            </div> */}
           </div>
           {/* section 2 */}
         </div>
