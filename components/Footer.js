@@ -15,10 +15,10 @@ export const Footer = () => {
         <div className={"mt-20 shadow-inner"}>
             <div className="container mx-auto pt-6 flex flex-col px-4 items-center">
                 <h1 className={"text-xl font-medium mb-2"}>Санал хүсэлт</h1>
-                <p className={"text-gray-600 text-sm "}>
+                <p className={"text-gray-600 text-sm text-center "}>
                     Bug {'&'} Website issues: workblgd1@gmail.com
                 </p>
-                <p className={"text-gray-600 text-sm "}>
+                <p className={"text-gray-600 text-sm text-center"}>
                     Question {'&'} Test: mainercyber@gmail.com
                 </p>
                 <div className={"mt-6 flex flex-row"}>
