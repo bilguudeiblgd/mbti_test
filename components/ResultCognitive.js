@@ -5,7 +5,7 @@ export default function ResultCognitive({ cogFunctions }) {
   return (
     <div>
       <div
-        className={"border-2 mb-6 md:mb-0 md:mr-4 w-80 rounded-2xl h-90 p-6"}
+        className={"border-2 mb-6 md:mb-0 w-80 rounded-2xl shadow-md h-90 p-6"}
       >
         <h3 className={"text-1xl font-medium text-center mb-4"}>
           Cognitive functions
@@ -46,13 +46,7 @@ export default function ResultCognitive({ cogFunctions }) {
                       {item[0]} - {value}%
                     </p>
                   </label>
-                  {/* <input
-                    type="range"
-                    max="100"
-                    value={value}
-                    defaultValue={value}
-                    name={item[0]}
-                  /> */}
+              
 
                   <div className={"w-32 mt-1 border-2 rounded-xl h-3 flex justify-start items-center z-0 overflow-hidden"}>
                     <div style={

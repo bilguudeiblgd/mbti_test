@@ -62,7 +62,7 @@ export default function CaseStudy({ part, cogFunctions }) {
         <div style={part == 3 ? { display: 'block' } : { display: 'none' }}>
             {caseQuestions.map(((item, index) => {
                 return <div key={index} className={"question-card-container flex flex-col items-center"} >
-                    <h1 className={"text-center text-1xl md:text-2xl font-semibold mb-6"}>{base + index}. {item.question1}</h1>
+                    <h1 className={"text-center text-1xl md:text-2xl font-semibold mb-6 px-2"}>{base + index}. {item.question1}</h1>
                     <div className={"flex flex-row mt-4 items-center"}>
                         <div className={"flex flex-row items-center "}>
                             <p className={"mr-4 hidden md:block text-left w-60"}>{item.answer1}</p>
@@ -82,8 +82,8 @@ export default function CaseStudy({ part, cogFunctions }) {
 
                     </div>
                     <div className={"block md:hidden flex flex-row justify-between w-max"}>
-                    <p className={"text-left w-40"}>{item.answer1}</p>
-                    <p className={"text-right w-40"}>{item.answer2}</p>
+                        <p className={"text-left w-40"}>{item.answer1}</p>
+                        <p className={"text-right w-40"}>{item.answer2}</p>
                     </div>
                     <div className={"border-b-2 m-10"} style={{ width: "100%" }}></div>
                 </div>

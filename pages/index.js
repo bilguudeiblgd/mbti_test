@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import TestButton from '../components/TestButton';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import { Footer } from '../components/Footer';
 
 export default function Home() {
 
@@ -66,7 +67,7 @@ export default function Home() {
       {/* to deploy */}
 
       <footer className={""}>
-
+        <Footer/>
       </footer>
     </div>
   )
