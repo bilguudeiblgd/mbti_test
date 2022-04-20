@@ -31,13 +31,13 @@ export default function Test() {
 
   let tempArray = [{
     cogfunc: "Ne",
-    question: "Миний толгойгоор дүүрэн шинэ санаанууд байдаг",
+    question: "Шинэ санаа олж сэдэх надад амархан",
   }, {
     cogfunc: "Ne",
     question: "Би хамааралгүй мэт хоёр зүйлсийн хоорондын холбоо ажиглах дуртай"
   }, {
     cogfunc: "Ne",
-    question: "Миний ухаан санаа энд тэндгүй байх хандлагатай"
+    question: "Миний ухаан санаа замбараагүй байх хандлагатай"
   }, {
     cogfunc: "Ni",
     question: "Холын ирээдүй өөрийн эрхгүй нүдэнд харагддаг"
@@ -58,7 +58,7 @@ export default function Test() {
     question: "Би эрсдэлтэй үйлдэл авах дуртай"
   }, {
     cogfunc: "Si",
-    question: "Би баримт, болсон үйл явдлуудыг маш тод санадаг"
+    question: "Би баримт, болсон үйл явдлуудыг цэгцтэй боддог"
   }, {
     cogfunc: "Si",
     question: "Би дадал зуршил хэвшүүлэх дуртай"
@@ -73,10 +73,10 @@ export default function Test() {
     question: "Би бодит үр дүнтэй үйлдлүүд авахыг эрхэмлэдэг"
   }, {
     cogfunc: "Te",
-    question: "Би хэт захирангүй байх хандлагатай"
+    question: "Би хэт захирангуй байх хандлагатай"
   }, {
     cogfunc: "Ti",
-    question: "Бусдын логикийн алдаа надад амархан олддог"
+    question: "Би бусдын логик алдааг амархан олдог"
   }, {
     cogfunc: "Ti",
     question: "Би юмсын логик учир шалтгааныг тунгаан боддог"
@@ -99,10 +99,10 @@ export default function Test() {
   },
    {
     cogfunc: "Fi",
-    question: "Өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
+    question: "Би өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
   }, {
     cogfunc: "Fi",
-    question: "Шударга байдал надад эвтэй байхаас чухал"
+    question: "Надад эвтэй байхаас шударга байх нь чухал"
   },];
 
   let questionChecked = [];
@@ -134,7 +134,7 @@ export default function Test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
-    console.log(cogFunctions);
+    
 
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {

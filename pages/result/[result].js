@@ -68,6 +68,8 @@ export default function Result({ result }) {
   };
   let resultCyber = [];
   let creditWords = new Map();
+  creditWords.set(3.5, "БАТТАЙ");
+  creditWords.set(3.0, "БАТТАЙ");
   creditWords.set(2.5, "БАТТАЙ");
   creditWords.set(2.0, "ӨНДӨР МАГАДЛАЛТАЙ");
   creditWords.set(1.5, "САЙН МАГАДЛАЛТАЙ");
@@ -171,9 +173,15 @@ export default function Result({ result }) {
 
         resultCyber.push({ mbti: mbtiWithMax2, score: credit2 });
       }
-
+    
     }
-
+    if(resultCyber[1].score > resultCyber[0].score) 
+    {
+      let temp = resultCyber[0];
+      resultCyber[0] = resultCyber[1];
+      resultCyber[1] = temp;
+    }
+    console.log(resultCyber);
 
   }
 
