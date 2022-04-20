@@ -3,13 +3,28 @@ import Image from 'next/image'
 import Link from 'next/link';
 import Logo from '../public/logo.jpg';
 import Navbar from '../components/Navbar';
+import { useRouter } from 'next/router';
+import { useEffect } from "react";
 import TestButton from '../components/TestButton';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { Footer } from '../components/Footer';
 
 export default function Home() {
+  const router = useRouter();
 
+  const handleRouteChange = (url) => {
+    window.gtag('config', '[Tracking ID]', {
+      page_path: url,
+    });
+  };
+
+  useEffect(() => {
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
   const [preTest, setPreTest] = useState("");
 
   const checkPreviousTest = () => {
@@ -27,7 +42,16 @@ export default function Home() {
         <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
         <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
         <link rel="icon" href="/favicon.ico" />
-
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '[G-S7R8QW66QB]', { page_path: window.location.pathname });
+            `,
+          }}
+        />
       </Head>
       <Navbar />
       <main className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 my-12"}>
@@ -67,7 +91,7 @@ export default function Home() {
       {/* to deploy */}
 
       <footer className={""}>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   )
