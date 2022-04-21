@@ -16,144 +16,55 @@ export default function MbtiScores({ cogFunctions }) {
         let Ni = cogFunctions.get("Ni");
         let Se = cogFunctions.get("Se");
         let Si = cogFunctions.get("Si");
-        let sumIntuition = Ne + Ni;
-        let sumSensing = Se + Si;
+        let sumIntuition = Ne + Ni + 31.6;
+        let sumSensing = Se + Si + 31.6;
         let highestIntuitionSensing;
         let intuitionPercent;
         let sensingPercent;
         // if both is positive
-        if (sumIntuition >= 0 && sumSensing >= 0) {
-            highestIntuitionSensing = sumIntuition + sumSensing;
-            intuitionPercent = Math.floor((sumIntuition * 100 / highestIntuitionSensing * 10)) / 10;
-            sensingPercent = Math.floor((sumSensing * 100 / highestIntuitionSensing * 10)) / 10
-        }
-        // if 1 is minus and the other is not
-        else if (sumIntuition < 0 && sumSensing >= 0) {
-            sumIntuition = Math.abs(sumIntuition);
-            sumSensing += sumIntuition * 2;
-            highestIntuitionSensing = sumIntuition + sumSensing;
-            intuitionPercent = Math.floor((sumIntuition * 100 / highestIntuitionSensing * 10)) / 10;
-            sensingPercent = Math.floor((sumSensing * 100 / highestIntuitionSensing * 10)) / 10;
-        }
-        else if (sumSensing < 0 && sumIntuition >= 0) {
-            sumSensing = Math.abs(sumSensing);
-            sumIntuition += sumSensing * 2;
-            highestIntuitionSensing = sumIntuition + sumSensing;
-            intuitionPercent = Math.floor((sumIntuition * 100 / highestIntuitionSensing * 10)) / 10;
-            sensingPercent = Math.floor((sumSensing * 100 / highestIntuitionSensing * 10)) / 10;
-        }
-        else if (sumSensing < 0 && sumIntuition < 0) {
-            highestIntuitionSensing = Math.abs(sumIntuition) + Math.abs(sumSensing);
-            intuitionPercent = Math.floor((Math.abs(sumSensing) * 100 / highestIntuitionSensing * 10)) / 10;
-            sensingPercent = Math.floor((Math.abs(sumIntuition)  * 100 / highestIntuitionSensing * 10)) / 10;
-        }
+        highestIntuitionSensing = sumIntuition + sumSensing;
+        intuitionPercent = Math.floor((sumIntuition * 100 / highestIntuitionSensing * 10)) / 10;
+        sensingPercent = Math.floor((sumSensing * 100 / highestIntuitionSensing * 10)) / 10
+
         intuitionSensing.push(intuitionPercent);
         intuitionSensing.push(sensingPercent);
 
-        let sumThinking = Ti + Te;
-        let sumFeeling = Fi + Fe;
+        let sumThinking = Ti + Te + 31.6;
+        let sumFeeling = Fi + Fe + 31.6;
         let highestThinkingFeeling;
         let thinkingPercent;
         let feelingPercent;
-        // if both is positive
-        if (sumThinking >= 0 && sumFeeling >= 0) {
-            highestThinkingFeeling = sumThinking + sumFeeling;
-            thinkingPercent = Math.floor((sumThinking * 100 / highestThinkingFeeling * 10)) / 10;
-            feelingPercent = Math.floor((sumFeeling * 100 / highestThinkingFeeling * 10)) / 10
-        }
-        // if 1 is minus and the other is not
-        else if (sumThinking < 0 && sumFeeling >= 0) {
-            sumThinking = Math.abs(sumThinking);
-            sumFeeling += sumThinking * 2;
-            highestThinkingFeeling = sumThinking + sumFeeling;
-            thinkingPercent = Math.floor((sumThinking * 100 / highestThinkingFeeling * 10)) / 10;
-            feelingPercent = Math.floor((sumFeeling * 100 / highestThinkingFeeling * 10)) / 10;
-        }
-        else if (sumFeeling < 0 && sumThinking >= 0) {
-            sumFeeling = Math.abs(sumFeeling);
-            sumThinking += sumFeeling * 2;
-            highestThinkingFeeling = sumThinking + sumFeeling;
-            thinkingPercent = Math.floor((sumThinking * 100 / highestThinkingFeeling * 10)) / 10;
-            feelingPercent = Math.floor((sumFeeling * 100 / highestThinkingFeeling * 10)) / 10;
-        }
-        else if (sumFeeling < 0 && sumThinking < 0) {
-            highestThinkingFeeling = Math.abs(sumThinking) + Math.abs(sumFeeling);
-            thinkingPercent = Math.floor((Math.abs(sumFeeling) * 100 / highestThinkingFeeling * 10)) / 10;
-            feelingPercent = Math.floor((Math.abs(sumThinking)  * 100 / highestThinkingFeeling * 10)) / 10;
-        }
+        highestThinkingFeeling = sumThinking + sumFeeling;
+        thinkingPercent = Math.floor((sumThinking * 100 / highestThinkingFeeling * 10)) / 10;
+        feelingPercent = Math.floor((sumFeeling * 100 / highestThinkingFeeling * 10)) / 10
 
         thinkingFeeling.push(thinkingPercent);
         thinkingFeeling.push(feelingPercent);
 
-        let sumIntro = Ti + Fi + Si + Ni;
-        let sumExtro = Te + Fe + Se + Ne;
+        let sumIntro = Ti + Fi + Si + Ni + 63.2;
+        let sumExtro = Te + Fe + Se + Ne + 63.2;
         let highestIntroExtro;
         let introPercent;
         let extroPercent;
+        highestIntroExtro = sumIntro + sumExtro;
+        introPercent = Math.floor((sumIntro * 100 / highestIntroExtro * 10)) / 10;
+        extroPercent = Math.floor((sumExtro * 100 / highestIntroExtro * 10)) / 10
         // if both is positive
-        if (sumIntro >= 0 && sumExtro >= 0) {
-            highestIntroExtro = sumIntro + sumExtro;
-            introPercent = Math.floor((sumIntro * 100 / highestIntroExtro * 10)) / 10;
-            extroPercent = Math.floor((sumExtro * 100 / highestIntroExtro * 10)) / 10
-        }
-        // if 1 is minus and the other is not
-        else if (sumIntro < 0 && sumExtro >= 0) {
-            sumIntro = Math.abs(sumIntro);
-            sumExtro += sumIntro * 2;
-            highestIntroExtro = sumIntro + sumExtro;
-            introPercent = Math.floor((sumIntro * 100 / highestIntroExtro * 10)) / 10;
-            extroPercent = Math.floor((sumExtro * 100 / highestIntroExtro * 10)) / 10;
-        }
-        else if (sumExtro < 0 && sumIntro >= 0) {
-            sumExtro = Math.abs(sumExtro);
-            sumIntro += sumIntro * 2;
-            highestIntroExtro = sumExtro + sumIntro;
-            introPercent = Math.floor((sumIntro * 100 / highestIntroExtro * 10)) / 10;
-            extroPercent = Math.floor((sumExtro * 100 / highestIntroExtro * 10)) / 10;
-        }
-        else if (sumExtro < 0 && sumIntro < 0) {
-            highestIntroExtro = Math.abs(sumExtro) + Math.abs(sumIntro);
-            introPercent = Math.floor((Math.abs(sumExtro) * 100 / highestIntroExtro * 10)) / 10;
-            extroPercent = Math.floor((Math.abs(sumIntro) * 100 / highestIntroExtro * 10)) / 10;
-        }
-        
+
+
         introExtro.push(introPercent);
         introExtro.push(extroPercent);
 
-        let sumJudging = Te + Fe + Ni + Si;
-        let sumProspecting = Ti + Fi + Ne + Se;
-        
+        let sumJudging = Te + Fe + Ni + Si + 63.2;
+        let sumProspecting = Ti + Fi + Ne + Se + 63.2;
+
         let highestJudgingProspecting;
         let judgingPercent;
         let prospectingPercent;
-        // if both is positive
-        if (sumJudging >= 0 && sumProspecting >= 0) {
-            highestJudgingProspecting = sumJudging + sumProspecting;
-            judgingPercent = Math.floor((sumJudging * 100 / highestJudgingProspecting * 10)) / 10;
-            prospectingPercent = Math.floor((sumProspecting * 100 / highestJudgingProspecting * 10)) / 10
-        }
-        // if 1 is minus and the other is not
-        else if (sumJudging < 0 && sumProspecting >= 0) {
-            sumJudging = Math.abs(sumJudging);
-            sumProspecting += sumJudging * 2;
-            highestJudgingProspecting = sumJudging + sumProspecting;
-            judgingPercent = Math.floor((sumJudging * 100 / highestJudgingProspecting * 10)) / 10;
-            prospectingPercent = Math.floor((sumProspecting * 100 / highestJudgingProspecting * 10)) / 10;
-        }
-        else if (sumProspecting < 0 && sumJudging >= 0) {
-            sumProspecting = Math.abs(sumProspecting);
-            sumJudging += sumProspecting * 2;
-            highestJudgingProspecting = sumProspecting + sumJudging;
-            judgingPercent = Math.floor((sumJudging * 100 / highestJudgingProspecting * 10)) / 10;
-            prospectingPercent = Math.floor((sumProspecting * 100 / highestJudgingProspecting * 10)) / 10;
-        }
-        else if (sumProspecting < 0 && sumJudging < 0) {
-            highestJudgingProspecting = Math.abs(sumProspecting) + Math.abs(sumJudging);
-            
-            judgingPercent = Math.floor((Math.abs(sumJudging) * 100 / highestJudgingProspecting * 10)) / 10;
-            prospectingPercent = Math.floor((Math.abs(sumProspecting) * 100 / highestJudgingProspecting * 10)) / 10;
-        }
-        
+        highestJudgingProspecting = sumJudging + sumProspecting;
+        judgingPercent = Math.floor((sumJudging * 100 / highestJudgingProspecting * 10)) / 10;
+        prospectingPercent = Math.floor((sumProspecting * 100 / highestJudgingProspecting * 10)) / 10;
+
         judgingProspecting.push(judgingPercent);
         judgingProspecting.push(prospectingPercent);
     };
