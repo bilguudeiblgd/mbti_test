@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import ResultCognitive from "../../components/ResultCognitive";
 import MbtiScores from "../../components/MbtiScores";
 import { LookForMore } from "../../components/LookForMore";
-import {Footer} from '../../components/Footer';
+import { Footer } from '../../components/Footer';
 export default function Result({ result }) {
 
   result = decodeURIComponent(result);
+
   let cogFunctions = new Map();
   let cogArr = result.split("&");
   cogArr.forEach((item) => {
@@ -173,18 +174,28 @@ export default function Result({ result }) {
 
         resultCyber.push({ mbti: mbtiWithMax2, score: credit2 });
       }
-    
+
     }
-    if(resultCyber[1].score > resultCyber[0].score) 
-    {
+    if (resultCyber[1].score > resultCyber[0].score) {
       let temp = resultCyber[0];
       resultCyber[0] = resultCyber[1];
       resultCyber[1] = temp;
     }
     console.log(resultCyber);
-
+    // saving the user data
   }
-
+  const [saveMsg, setSaveMsg] = useState("");
+  const saveAnswer = () => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem("personality")) {
+        localStorage.removeItem("personality");
+        localStorage.removeItem("url");
+      }
+      localStorage.setItem("personality", resultCyber[0].mbti);
+      localStorage.setItem("url", result);
+      setSaveMsg("Хариу хадгалагдлаа :)");
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -287,6 +298,18 @@ export default function Result({ result }) {
               </div>
 
             </div>
+          </div>
+
+          <div className={"mt-12"}>
+
+            {
+              !saveMsg ?
+                <button onClick={saveAnswer} className={"border-2 bg-[#6BCB77] px-6 py-2 text-white rounded-full"}>
+                  Хариуг хадгалах
+                </button>
+                :
+                <p className={"text-green-400"}>{saveMsg}</p>
+            }
           </div>
           {/* section 2 */}
         </div>

@@ -11,20 +11,18 @@ import { BsSearch } from 'react-icons/bs';
 import { Footer } from '../components/Footer';
 
 export default function Home() {
-  const router = useRouter();
-
-  const handleRouteChange = (url) => {
-    window.gtag('config', '[Tracking ID]', {
-      page_path: url,
-    });
-  };
-
+  
+  const [personality, setPersonality] = useState("");
+  const [resultURL, setResultURL] = useState("");
   useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+    let personality = localStorage.getItem("personality");
+    let url = localStorage.getItem("url");
+    if (personality) {
+      setPersonality(personality)
+      setResultURL(url);
+    }
+    console.log("get item", localStorage.getItem("personality"));
+  }, []);
   const [preTest, setPreTest] = useState("");
 
   const checkPreviousTest = () => {
@@ -42,16 +40,7 @@ export default function Home() {
         <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
         <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
         <link rel="icon" href="/favicon.ico" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '[G-S7R8QW66QB]', { page_path: window.location.pathname });
-            `,
-          }}
-        />
+
       </Head>
       <Navbar />
       <main className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 my-12"}>
@@ -80,11 +69,24 @@ export default function Home() {
           </div>
         </div>
         <div className={"flex flex-col items-center justify-center"}>
-          <h1 className={"text-center font-thin mb-3"}>Өмнөх хариун Код:</h1>
+          <h1 className={"text-center font-medium mb-3"}>Хариуны Код:</h1>
           <div className={"w-96 flex flex-row justify-between items-center border-2 rounded-2xl"}>
             <input className={"rounded-2xl flex-1 outline-none px-3"} type="input" />
             <a style={{ backgroundColor: "rgb(65,142,89)", color: 'white' }} className={"cursor-pointer outline-0 rounded-2xl px-2 py-1 flex justify-center text-center max-h-full"}><BsSearch size={"25px"} /></a>
           </div>
+          {
+            personality ?
+              <div className={"mt-6"}>
+                <h1 className={"text-center font-thin mb-3 font-medium"}>Өмнөх хариу:</h1>
+                <div className={"flex justify-center"}>
+                  <a target="_blank" rel="noopener noreferrer" href={`/result/${resultURL}`} className={"border-2 text-white bg-[#7A468A] px-6 py-2 rounded-full"}>
+                    {personality}
+                  </a>
+                </div>
+              </div>
+              : ""
+          }
+
         </div>
 
       </main>

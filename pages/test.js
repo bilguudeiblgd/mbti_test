@@ -46,7 +46,7 @@ export default function Test() {
     question: "Юмсын зүй тогтол надад амархан ажиглагддаг"
   }, {
     cogfunc: "Ni",
-    question: "Би нэг харах өнцгөндөө хэт туйлшрах хандлагатай"
+    question: "Би нэг үзэл бодолдоо маш үнэнч"
   }, {
     cogfunc: "Se",
     question: "Би хурдан шаламгай сэтгэж дасан зохицохдоо сайн"
@@ -55,7 +55,7 @@ export default function Test() {
     question: "Би тухайн цаг үе мөчдөө төвлөрч бүрэн мэдрэх дуртай"
   }, {
     cogfunc: "Se",
-    question: "Би эрсдэлтэй үйлдэл авах дуртай"
+    question: "Би эрсдэлтэй үйлдэл хийх дуртай"
   }, {
     cogfunc: "Si",
     question: "Би баримт, болсон үйл явдлуудыг цэгцтэй боддог"
@@ -70,7 +70,7 @@ export default function Test() {
     question: "Би ямарваа нэгэн асуудлыг шийдэх хамгийн дөт замыг олохдоо сайн"
   }, {
     cogfunc: "Te",
-    question: "Би бодит үр дүнтэй үйлдлүүд авахыг эрхэмлэдэг"
+    question: "Би бодит үр дүнтэй үйлдэл хийхийг эрхэмлэдэг"
   }, {
     cogfunc: "Te",
     question: "Би хэт захирангуй байх хандлагатай"
@@ -95,7 +95,7 @@ export default function Test() {
   },
   {
     cogfunc: "Fi",
-    question: "Би давгүй мэдрэмжтэй"
+    question: "Би мэдрэмж сайтай хүн"
   },
    {
     cogfunc: "Fi",
