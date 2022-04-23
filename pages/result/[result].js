@@ -2,11 +2,11 @@ import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import React, { useState } from "react";
 import ResultCognitive from "../../components/ResultCognitive";
+import Link from 'next/link';
 import MbtiScores from "../../components/MbtiScores";
 import { LookForMore } from "../../components/LookForMore";
-import { Footer } from '../../components/Footer';
+import { Footer } from "../../components/Footer";
 export default function Result({ result }) {
-
   result = decodeURIComponent(result);
 
   let cogFunctions = new Map();
@@ -64,7 +64,6 @@ export default function Result({ result }) {
       [...personalities.entries()].sort((a, b) => b[1] - a[1])
     );
 
-
     personalities = personalitiesSorted;
   };
   let resultCyber = [];
@@ -80,11 +79,17 @@ export default function Result({ result }) {
     // Initializing
 
     let twinFunctions = new Map();
-    twinFunctions.set('Fi', 'Ti'); twinFunctions.set('Ti', 'Fi');
-    twinFunctions.set('Ni', 'Si'); twinFunctions.set('Si', 'Ni');
-    twinFunctions.set('Se', 'Ne'); twinFunctions.set('Ne', 'Se');
-    twinFunctions.set('Fe', 'Te'); twinFunctions.set('Te', 'Fe');
-    let cognitiesSorted = new Map([...cogFunctions.entries()].sort((a, b) => b[1] - a[1]));
+    twinFunctions.set("Fi", "Ti");
+    twinFunctions.set("Ti", "Fi");
+    twinFunctions.set("Ni", "Si");
+    twinFunctions.set("Si", "Ni");
+    twinFunctions.set("Se", "Ne");
+    twinFunctions.set("Ne", "Se");
+    twinFunctions.set("Fe", "Te");
+    twinFunctions.set("Te", "Fe");
+    let cognitiesSorted = new Map(
+      [...cogFunctions.entries()].sort((a, b) => b[1] - a[1])
+    );
     let cogniSortedArray = [...cognitiesSorted.entries()];
     // let twoPossibleIteration = [cogniSortedArray[0][0], cogniSortedArray[0][1]]
 
@@ -99,7 +104,7 @@ export default function Result({ result }) {
       let cogWithMax1 = [];
       let mbtiWithMax1;
       let cogWithMax2 = [];
-      let mbtiWithMax2
+      let mbtiWithMax2;
       let foundFirst = false;
 
       for (let item of mbtiInFunctions) {
@@ -118,22 +123,28 @@ export default function Result({ result }) {
       // Defining
 
       // Add middle functions
-      let middleFuncSum1 = cogFunctions.get(cogWithMax1[1]) + cogFunctions.get(cogWithMax1[2]);
+      let middleFuncSum1 =
+        cogFunctions.get(cogWithMax1[1]) + cogFunctions.get(cogWithMax1[2]);
 
-      let middleFuncSum2 = cogFunctions.get(cogWithMax2[1]) + cogFunctions.get(cogWithMax2[2]);
+      let middleFuncSum2 =
+        cogFunctions.get(cogWithMax2[1]) + cogFunctions.get(cogWithMax2[2]);
 
-      if (middleFuncSum1 > middleFuncSum2) credit1++
+      if (middleFuncSum1 > middleFuncSum2) credit1++;
       else credit2++;
 
       // Check 2nd and 3rd function with inferior
-      if (cogFunctions.get(cogWithMax1[1]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
+      if (cogFunctions.get(cogWithMax1[1]) > cogFunctions.get(cogWithMax1[3]))
+        credit1 = credit1 + 0.5;
       else credit1 = credit1 - 0.5;
-      if (cogFunctions.get(cogWithMax1[2]) > cogFunctions.get(cogWithMax1[3])) credit1 = credit1 + 0.5
+      if (cogFunctions.get(cogWithMax1[2]) > cogFunctions.get(cogWithMax1[3]))
+        credit1 = credit1 + 0.5;
       else credit1 = credit1 - 0.5;
 
-      if (cogFunctions.get(cogWithMax2[1]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
+      if (cogFunctions.get(cogWithMax2[1]) > cogFunctions.get(cogWithMax2[3]))
+        credit2 = credit2 + 0.5;
       else credit2 = credit2 - 0.5;
-      if (cogFunctions.get(cogWithMax2[2]) > cogFunctions.get(cogWithMax2[3])) credit2 = credit2 + 0.5
+      if (cogFunctions.get(cogWithMax2[2]) > cogFunctions.get(cogWithMax2[3]))
+        credit2 = credit2 + 0.5;
       else credit2 = credit2 - 0.5;
 
       // Check if the twin is the lowest
@@ -150,43 +161,35 @@ export default function Result({ result }) {
       let place1;
       let place2;
       for (let item in cogniSortedArray) {
-
         if (cogWithMax1[1] == cogniSortedArray[item][0]) {
           place1 = parseInt(item) + 1;
-
         }
         if (cogWithMax2[1] == cogniSortedArray[item][0]) {
           place2 = parseInt(item) + 1;
         }
       }
 
-      let score1 = (2 - (place1)) * 0.5;
-      let score2 = (2 - (place2)) * 0.5;
+      let score1 = (2 - place1) * 0.5;
+      let score2 = (2 - place2) * 0.5;
       credit1 += score1;
       credit2 += score2;
 
-
       if (credit1 > credit2) {
-
         resultCyber.push({ mbti: mbtiWithMax1, score: credit1 });
-      }
-      else {
-
+      } else {
         resultCyber.push({ mbti: mbtiWithMax2, score: credit2 });
       }
-
     }
     if (resultCyber[1].score > resultCyber[0].score) {
       let temp = resultCyber[0];
       resultCyber[0] = resultCyber[1];
       resultCyber[1] = temp;
     }
-    console.log(resultCyber);
-    // saving the user data
-  }
+  };
+  // saving the user data
   const [saveMsg, setSaveMsg] = useState("");
   const saveAnswer = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (localStorage.getItem("personality")) {
         localStorage.removeItem("personality");
         localStorage.removeItem("url");
@@ -195,7 +198,7 @@ export default function Result({ result }) {
       localStorage.setItem("url", result);
       setSaveMsg("Хариу хадгалагдлаа :)");
     }
-  }
+  };
   return (
     <div>
       <Navbar />
@@ -225,13 +228,13 @@ export default function Result({ result }) {
                               style={
                                 index == 0
                                   ? {
-                                    backgroundColor: "#FFD93D",
-                                    borderRadius: "24px",
-                                    paddingTop: "4px",
-                                    paddingBottom: "4px",
-                                    paddingLeft: "12px",
-                                    paddingRight: "12px",
-                                  }
+                                      backgroundColor: "#FFD93D",
+                                      borderRadius: "24px",
+                                      paddingTop: "4px",
+                                      paddingBottom: "4px",
+                                      paddingLeft: "12px",
+                                      paddingRight: "12px",
+                                    }
                                   : {}
                               }
                               className={"mb-2"}
@@ -267,9 +270,11 @@ export default function Result({ result }) {
               </div>
             </div>
             {calculateCyber()}
-            <div className={"border-2 md:ml-8 w-80 shadow-md rounded-2xl h-90 p-6"}>
+            <div
+              className={"border-2 md:ml-8 w-80 shadow-md rounded-2xl h-90 p-6"}
+            >
               <h3 className={"text-1xl font-medium text-center"}>
-                Cyberio{"\'"}s formula
+                Cyberio{"'"}s formula
               </h3>
               <div className={"mt-6 flex flex-col items-center"}>
                 <p className={"font-medium"}>Таны зан чанар:</p>
@@ -283,7 +288,14 @@ export default function Result({ result }) {
                   </h2>
                 </div>
                 {/* {console.log(resultCyber[0].score, resultCyber[1].score)} */}
-                <p className={"mt-2"}>байх нь <span className={"font-semibold"}>{resultCyber[0].score < 0.5 ? "ТОДОРХОЙ БИШ" : creditWords.get(resultCyber[0].score)}</span></p>
+                <p className={"mt-2"}>
+                  байх нь{" "}
+                  <span className={"font-semibold"}>
+                    {resultCyber[0].score < 0.5
+                      ? "ТОДОРХОЙ БИШ"
+                      : creditWords.get(resultCyber[0].score)}
+                  </span>
+                </p>
                 <h4 className={"mt-6 font-medium"}>Эсвэл</h4>
                 <div className={"w-full flex justify-center"}>
                   <h2
@@ -294,38 +306,51 @@ export default function Result({ result }) {
                     {resultCyber[1].mbti}
                   </h2>
                 </div>
-                <p className={"mt-2"}>байх нь <span className={"font-semibold"}>{resultCyber[1].score < 0.5 ? "ТОДОРХОЙ БИШ" : creditWords.get(resultCyber[1].score)}</span></p>
+                <p className={"mt-2"}>
+                  байх нь{" "}
+                  <span className={"font-semibold"}>
+                    {resultCyber[1].score < 0.5
+                      ? "ТОДОРХОЙ БИШ"
+                      : creditWords.get(resultCyber[1].score)}
+                  </span>
+                </p>
               </div>
-
             </div>
           </div>
 
           <div className={"mt-12"}>
-
-            {
-              !saveMsg ?
-                <button onClick={saveAnswer} className={"border-2 bg-[#6BCB77] px-6 py-2 text-white rounded-full"}>
-                  Хариуг хадгалах
-                </button>
-                :
-                <p className={"text-green-400"}>{saveMsg}</p>
-            }
+            {!saveMsg ? (
+              <button
+                onClick={saveAnswer}
+                className={
+                  "border-2 bg-[#6BCB77] px-6 py-2 text-white rounded-full"
+                }
+              >
+                Хариуг хадгалах
+              </button>
+            ) : (
+              <p className={"text-green-400"}>{saveMsg}</p>
+            )}
           </div>
           {/* section 2 */}
         </div>
         <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
         <div className={"flex flex-col items-center mb-20"}>
           <h1 className={"text-4xl text-center mb-8"}>Тестийн оноо</h1>
-          <div className={"flex flex-col md:flex-row justify-around"}>
-            <div className={"md:mr-8"}>
+          <div className={"flex flex-col items-center justify-center"}>
+            <div className={""}>
               <ResultCognitive cogFunctions={cogFunctions} />
             </div>
-            <div className={"md:ml-8"}>
+            {/* <div className={"md:ml-8"}>
               <MbtiScores cogFunctions={cogFunctions} />
-            </div>
-
+            </div> */}
+            <div className={"mt-6 flex flex-col items-center"}>
+              <h1 className={"text-sm font-bold"}>Cognitive Function ба MBTI-ийн талаар дэлгэрэхгүй уншихыг хүсвэл</h1>
+              <Link href="/mbti">
+                <a className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>MBTI тайлбар</a>
+              </Link>
+             </div> 
           </div>
-
         </div>
         <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
         <LookForMore />

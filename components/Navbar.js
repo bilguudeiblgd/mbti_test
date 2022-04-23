@@ -9,7 +9,7 @@ import styles from '../styles/navbar.module.css';
 export default function Navbar() {
     return (
         <div className={styles.navbar_shadow}>
-            <nav className={"container mx-auto px-4 py-2"}>
+            <nav className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 py-2"}>
                 <ul className={"flex flex-row justify-between"}>
                     <div className={"flex flex-row items-center"}>
                         <li className={"pr-6 flex shrink-0"}>
@@ -17,9 +17,14 @@ export default function Navbar() {
                                 <a><Image className={"rounded-full "} src={Logo} alt="MBTI Mongolia Logo" width={"50px"} height={"50px"} /></a>
                             </Link>
                         </li>
-                        <li className={"pr-6 hidden md:block"}>
-                            <Link href="/about">
-                                <a className={"text-gray-600 hover:text-black"}>Бидний тухай</a>
+                        <li className={"ml-4 hidden md:block"}>
+                            <Link href="/mbti">
+                                <a className={"text-gray-600 hover:text-black"}>MBTI</a>
+                            </Link>
+                        </li>
+                        <li className={"ml-8 hidden md:block"}>
+                            <Link href="/faq">
+                                <a className={"text-gray-600 hover:text-black"}>FAQ</a>
                             </Link>
                         </li>
 
