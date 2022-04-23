@@ -27,9 +27,9 @@ export default function Home() {
         <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
         <meta name="keywords" content="MBTI Mongolia, 16 Personalities"/>
         <link rel="icon" href="/favicon.ico" />
-        <script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+        <script src={`https://www.googletagmanager.com/gtag/js?id=G-FXF025NT1W`} />
 
-            <script strategy="lazyOnload">
+            <script >
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
