@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import cogDescriptions from "../components/cog-description.json";
 import { Footer } from "../components/Footer";
 import SixteenPersonality from "../components/SixteenPersonality";
-export default function mbti() {
+export default function Mbti() {
   return (
     <div>
       <Navbar />
