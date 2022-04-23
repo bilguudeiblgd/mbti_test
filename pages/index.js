@@ -67,7 +67,15 @@ export default function Home() {
                   гарах тул илүү мэдээллийг манай Instagram хуудсаас олж
                   уншаарай.
                 </h4>
-                <div className={"w-40 mt-6"}>
+                <div className={"mt-4"}>
+                  <Link href="/mbti">
+                    <a className={"px-4 py-1 text-black text-sm border-black border-2 rounded-full"}>
+                      Илүү ихийг унших
+                    </a>
+                  </Link>
+                </div>
+
+                <div className={"w-40 mt-4"}>
                   <Link href="/test">
                     <a>
                       {" "}
@@ -93,7 +101,7 @@ export default function Home() {
             <h1 className={"text-center font-medium mb-3"}>Хариуны Код:</h1>
             <div
               className={
-                "w-96 flex flex-row justify-between items-center border-2 rounded-2xl"
+                " w-60 md:w-96 flex flex-row justify-between items-center border-2 rounded-2xl"
               }
             >
               <input
