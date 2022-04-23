@@ -31,13 +31,13 @@ export default function Test() {
 
   let tempArray = [{
     cogfunc: "Ne",
-    question: "Миний толгойгоор дүүрэн шинэ санаанууд байдаг",
+    question: "Шинэ санаа олж сэдэх надад амархан",
   }, {
     cogfunc: "Ne",
     question: "Би хамааралгүй мэт хоёр зүйлсийн хоорондын холбоо ажиглах дуртай"
   }, {
     cogfunc: "Ne",
-    question: "Миний ухаан санаа энд тэндгүй байх хандлагатай"
+    question: "Миний ухаан санаа замбараагүй байх хандлагатай"
   }, {
     cogfunc: "Ni",
     question: "Холын ирээдүй өөрийн эрхгүй нүдэнд харагддаг"
@@ -46,7 +46,7 @@ export default function Test() {
     question: "Юмсын зүй тогтол надад амархан ажиглагддаг"
   }, {
     cogfunc: "Ni",
-    question: "Би нэг харах өнцгөндөө хэт туйлшрах хандлагатай"
+    question: "Би нэг үзэл бодолдоо маш үнэнч"
   }, {
     cogfunc: "Se",
     question: "Би хурдан шаламгай сэтгэж дасан зохицохдоо сайн"
@@ -55,13 +55,13 @@ export default function Test() {
     question: "Би тухайн цаг үе мөчдөө төвлөрч бүрэн мэдрэх дуртай"
   }, {
     cogfunc: "Se",
-    question: "Би эрсдэлтэй үйлдэл авах дуртай"
+    question: "Би эрсдэлтэй үйлдэл хийх дуртай"
   }, {
     cogfunc: "Si",
-    question: "Би баримт, болсон үйл явдлуудыг маш тод санадаг"
+    question: "Би баримт, болсон үйл явдлуудыг цэгцтэй боддог"
   }, {
     cogfunc: "Si",
-    question: "Цагийн хуваарь гэх мэт дадал зуршил хэвшүүлэх надад амархан"
+    question: "Би дадал зуршил хэвшүүлэх дуртай"
   }, {
     cogfunc: "Si",
     question: "Би өнгөрсөндөө уягдах хандлагатай"
@@ -70,16 +70,16 @@ export default function Test() {
     question: "Би ямарваа нэгэн асуудлыг шийдэх хамгийн дөт замыг олохдоо сайн"
   }, {
     cogfunc: "Te",
-    question: "Би бодит үр дүнтэй үйлдлүүд авахыг эрхэмлэдэг"
+    question: "Би бодит үр дүнтэй үйлдэл хийхийг эрхэмлэдэг"
   }, {
     cogfunc: "Te",
-    question: "Би хэт захирангүй байх хандлагатай"
+    question: "Би хэт захирангуй байх хандлагатай"
   }, {
     cogfunc: "Ti",
-    question: "Бусдын логикийн алдаа надад амархан олддог"
+    question: "Би бусдын логик алдааг амархан олдог"
   }, {
     cogfunc: "Ti",
-    question: "Би юмсын логик учир шалтгааныг гүн тунгаан боддог"
+    question: "Би юмсын логик учир шалтгааныг тунгаан боддог"
   }, {
     cogfunc: "Ti",
     question: "Надад хариунаас илүү бодох арга барил нь чухал"
@@ -91,18 +91,18 @@ export default function Test() {
     question: "Бусдын сэтгэл хөдлөл надад чухал"
   }, {
     cogfunc: "Fe",
-    question: "Надад өөрийнхөө шаардлагыг бусдад тавих хэцүү байдаг"
+    question: "Өөрийн шаардлагыг бусдад тавих нь надад хэцүү байдаг"
   },
   {
     cogfunc: "Fi",
-    question: "Би давгүй мэдрэмжтэй"
+    question: "Би мэдрэмж сайтай хүн"
   },
    {
     cogfunc: "Fi",
-    question: "Өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
+    question: "Би өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
   }, {
     cogfunc: "Fi",
-    question: "Шударга байдал надад эвтэй байхаас чухал"
+    question: "Надад эвтэй байхаас шударга байх нь чухал"
   },];
 
   let questionChecked = [];
@@ -134,7 +134,7 @@ export default function Test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
-    console.log(cogFunctions);
+    
 
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {
@@ -218,10 +218,10 @@ export default function Test() {
         <CaseStudy part={part} cogFunctions={savingCogFunc} />
 
         <div className={"flex justify-around"}>
-          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
+          <button style={part == 1 ? { display: "none" } : { display: "block" }} className={"bg-[#6028ac] text-white px-6 py-2 rounded-full"} onClick={() => changePart("previous")}>
             <a>Өмнөх</a>
           </button>
-          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-[#8b4766] text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
+          <button style={part == 3 ? { display: "none" } : { display: "block" }} className={"bg-[#6028ac] text-white px-6 py-2 rounded-full"} onClick={() => changePart("next")}>
             <a>Дараах</a>
           </button>
           <button style={part == 3 ? { display: "block" } : { display: "none" }} className={"bg-[#649821] text-white px-6 py-2 rounded-full"} onClick={() => createUrl()}>

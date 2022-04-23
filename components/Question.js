@@ -19,7 +19,7 @@ export default function Question(props) {
 
     return <>
         <div className={"question-card-container flex flex-col items-center"} >
-            <h1 className={"text-center text-1xl md:text-2xl font-semibold my-6"}>{index}. {question}</h1>
+            <h1 className={"text-center text-1xl md:text-2xl font-semibold my-6 px-2"}>{index}. {question}</h1>
             <div>
                 <div onChange={onChangeHandler} className="question-radio flex flex-row justify-center items-center">
                     <h1 style={{color: "#8b4766"}} className={"hidden mr-4 font-normal sm:block"}>Үгүй</h1>

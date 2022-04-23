@@ -5,7 +5,7 @@ import Question from './Question';
 
 export default function DuoFunctions({ part, cogFunctions }) {
     
-    console.log(cogFunctions);
+    
     const [duoQuestions, setDuoQuestions] = useState([]);
     let questionChecked = [];
     let questionChoosen = [];
