@@ -40,7 +40,7 @@ export default function CyberioPopModal() {
                     <DialogContentText id="alert-dialog-description">
                         <article>
                             <p className={"text-sm"}>Cyberio formula нь таны хамгийн их оноотой 2 cognitive function-ийг аваад түүнтэй харгалзах type байх хэр магадлалтайг тооцоолдог.
-                                Жишээ нь хамгийн "Ni" их оноотой бол INTJ, INFJ буюу {'Ni>Te>Fi>Se, Ni>Fe>Ti>'} Se хоёр бүлгийн аль их оноотойг авч үзнэ.
+                                Жишээ нь хамгийн {"'Ni'"} их оноотой бол INTJ, INFJ буюу {'Ni>Te>Fi>Se, Ni>Fe>Ti>'} Se хоёр бүлгийн аль их оноотойг авч үзнэ.
                                 Түүнээс цаашлаад таны оноонууд яг тухайн дэс дараатай байгаа эсэхийг шалгана. Гэх мэтчилэн cognitive personality theory-гийн зүй тогтлуудыг ашиглан магадлалын оноо тооцоолж гаргана.
                             </p>
                             <h3 className={"font-semibold mt-3 my-1"}>Боломжит хариунууд</h3>
