@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import Link from 'next/link';
-import Logo from '../public/logo.jpg';
+import Logo from '/public/logo.jpg';
 import { FaDiscord } from 'react-icons/fa';
 import TestButton from './TestButton.js';
-import styles from '../styles/navbar.module.css';
+import styles from '../../styles/navbar.module.css';
 export default function Navbar() {
     return (
         <div className={styles.navbar_shadow}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import questions from './duoFunctions.json'
+import questions from './data/duoFunctions.json'
 import Question from './Question';
 
 export default function DuoFunctions({ part, cogFunctions }) {

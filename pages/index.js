@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../public/logo.jpg";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/common/Navbar";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import TestButton from "../components/TestButton";
+import TestButton from "../components/common/TestButton";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { Footer } from "../components/Footer";
+import Footer from "../components/common/Footer";
 
 export default function Home() {
   const [personality, setPersonality] = useState("");

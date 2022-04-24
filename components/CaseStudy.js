@@ -1,5 +1,5 @@
 import React from 'react'
-import questions from './caseStudy.json';
+import questions from './data/caseStudy.json';
 import { useEffect, useState } from 'react';
 import styles from "../styles/test.module.css";
 

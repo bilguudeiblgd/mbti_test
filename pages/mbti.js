@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
-import cogDescriptions from "../components/cog-description.json";
-import { Footer } from "../components/Footer";
+import Navbar from "../components/common/Navbar";
+import cogDescriptions from "../components/data/cog-description.json";
+import Footer from "../components/common/Footer";
 import SixteenPersonality from "../components/SixteenPersonality";
 export default function Mbti() {
   return (
@@ -42,6 +42,13 @@ export default function Mbti() {
                 <Image src="/cogfunc.png" width={220} height={220} />
               </div>
             </article>
+            <div className={"mt-20 text-center"}>
+              <h1 className={"text-2xl font-bold text-[#b358ce] mb-4"}>
+                16 зан чанарын Cognitive Function загвар
+                <SixteenPersonality />
+              </h1>
+
+            </div>
             <article className={"mt-20"}>
               <h1 className={"text-2xl font-bold text-[#b358ce] mb-6"}>
                 Cognitive Functions дэлгэрэнгүй
@@ -102,14 +109,8 @@ export default function Mbti() {
                 </li>
               </ul>
             </article>
+            <p className={"text-center text-sm mt-12 text-gray-400"}>Удахгүй 16 personality тус бүрд нь тайлбар оруулах болно. Илүү ихийг IG: @mbti_mongolia дээрээс үзээрэй.</p>
 
-            <div className={"mt-20 text-center"}>
-              <h1 className={"text-2xl font-bold text-[#b358ce] mb-4"}>
-                16 зан чанарын Cognitive Function загвар
-                <SixteenPersonality/>
-              </h1>
-            
-            </div>
           </div>
         </div>
       </div>

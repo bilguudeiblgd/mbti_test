@@ -4,12 +4,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Navbar from "../components/Navbar";
-import { Footer } from "../components/Footer";
+import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 export default function Faq() {
   const [expanded, setExpanded] = useState(false);
-
+  
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };

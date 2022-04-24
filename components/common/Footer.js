@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Footer = () => {
+const Footer = () => {
     const [showTester, setShowTester] = useState(false);
 
     const onShowTest = () => {
@@ -48,3 +48,4 @@ export const Footer = () => {
         </div>
     )
 }
+export default Footer;

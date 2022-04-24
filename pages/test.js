@@ -4,7 +4,7 @@ import Router from 'next/router';
 import Link from 'next/link';
 import styles from "../styles/test.module.css";
 import Logo from '../public/logo.jpg';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/common/Navbar';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import DuoFunctions from '../components/DuoFunctions';

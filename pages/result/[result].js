@@ -1,11 +1,17 @@
 import { useRouter } from "next/router";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/common/Navbar";
 import React, { useState } from "react";
 import ResultCognitive from "../../components/ResultCognitive";
 import Link from 'next/link';
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MbtiScores from "../../components/MbtiScores";
 import { LookForMore } from "../../components/LookForMore";
-import { Footer } from "../../components/Footer";
+import Footer from "../../components/common/Footer";
+import PopModal from "../../components/PopModal/PopModal";
+import CyberioPopModal from "../../components/PopModal/CyberioPopModal";
 export default function Result({ result }) {
   result = decodeURIComponent(result);
 
@@ -211,12 +217,14 @@ export default function Result({ result }) {
           <div className={"flex flex-col md:flex-row justify-around"}>
             <div
               className={
-                "border-2 mb-6 md:mb-0 md:mr-8 w-80 shadow-md rounded-2xl h-90 p-6"
+                "border-2 mb-6 md:mb-0 md:mr-8 w-80 relative shadow-md rounded-2xl h-90 p-6"
               }
             >
+
               <h3 className={"text-1xl font-medium text-center"}>
                 Mistype Investigator formula
               </h3>
+
               <div className={"flex mt-6 flex-row justify-around"}>
                 <div>
                   {[...personalities.keys()].map((key, index) => {
@@ -228,13 +236,13 @@ export default function Result({ result }) {
                               style={
                                 index == 0
                                   ? {
-                                      backgroundColor: "#FFD93D",
-                                      borderRadius: "24px",
-                                      paddingTop: "4px",
-                                      paddingBottom: "4px",
-                                      paddingLeft: "12px",
-                                      paddingRight: "12px",
-                                    }
+                                    backgroundColor: "#FFD93D",
+                                    borderRadius: "24px",
+                                    paddingTop: "4px",
+                                    paddingBottom: "4px",
+                                    paddingLeft: "12px",
+                                    paddingRight: "12px",
+                                  }
                                   : {}
                               }
                               className={"mb-2"}
@@ -268,20 +276,22 @@ export default function Result({ result }) {
                   })}
                 </div>
               </div>
+              <PopModal title={"Mistype Investigator formula"} text={"Mistype Investigator formula нь бүх зан чанарын cognitive function-ыг загвараар нь 1st*1.4+2nd*1+3rd*0.8+4th*0.2=Оноо гэж гаргаад оноогоор нь жагсаадаг Жишээ нь INTJ байх оноо нь тест өгөгчийн Ni оноог 1.4-т үржүүлээд, Te оноог 1-т, Fi оноог 0.8-т, Se оноог 0.2-т үржүүлээд бүх гарсан тооны нийлбэр нь болно"} />
             </div>
+
             {calculateCyber()}
             <div
-              className={"border-2 md:ml-8 w-80 shadow-md rounded-2xl h-90 p-6"}
+              className={"border-2 md:ml-8 w-80 shadow-md relative rounded-2xl h-90 p-6"}
             >
               <h3 className={"text-1xl font-medium text-center"}>
                 Cyberio{"'"}s formula
               </h3>
               <div className={"mt-6 flex flex-col items-center"}>
-                <p className={"font-medium"}>Таны зан чанар:</p>
+                <p className={"font-medium text-md"}>Таны зан чанар:</p>
                 <div className={"w-full flex justify-center"}>
                   <h2
                     className={
-                      "bg-[#FFD93D] w-max px-8 mt-2 rounded-3xl py-2 text-center"
+                      "bg-[#FFD93D] text-xl w-max px-8 mt-2 rounded-3xl py-2 text-center"
                     }
                   >
                     {resultCyber[0].mbti}
@@ -296,11 +306,11 @@ export default function Result({ result }) {
                       : creditWords.get(resultCyber[0].score)}
                   </span>
                 </p>
-                <h4 className={"mt-6 font-medium"}>Эсвэл</h4>
+                <h4 className={"mt-6 text-lg font-medium"}>Эсвэл</h4>
                 <div className={"w-full flex justify-center"}>
                   <h2
                     className={
-                      "bg-[#868686] w-max px-8 mt-2 rounded-3xl py-2 text-center"
+                      "bg-[#acacac] w-max px-8 mt-2 rounded-3xl py-2 text-center"
                     }
                   >
                     {resultCyber[1].mbti}
@@ -315,7 +325,9 @@ export default function Result({ result }) {
                   </span>
                 </p>
               </div>
+              <CyberioPopModal />
             </div>
+
           </div>
 
           <div className={"mt-12"}>
@@ -331,6 +343,24 @@ export default function Result({ result }) {
             ) : (
               <p className={"text-green-400"}>{saveMsg}</p>
             )}
+          </div>
+          <div className={"max-w-lg mt-6"}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
+              >
+                <p className={"text-sm font-semibold"}>
+                  Яагаад 16personality.com-ийн хариунаас шал өөр хариу гарна вэ?
+                </p>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p className={"text-sm"}>
+                  - Англи тестийн асуултыг янз бүрээр ойлгохоос гадна тест авж буй хэмжүүрүүд нь mistype буюу оновчгүй хариу гаргахад хүргэдэг. Үүнтэй тэмцэхийн тулд энэхүү тестийг хийсэн юм. Энэхүү тест нь Intuitive vs Sensing, Introvert vs Extrovert, Thinking vs Feeling гэх мэтийн хар цагаан аргаар тестлэх бус cognitive function буюу таны бодох арга барилыг шалгаж хариу гаргадаг. Зан чанар бүрд thinking, feeling, sensing, intuiting зэрэг агуулагдаж байдаг ба заримдаа тэд нь хосолж ажилдаг. Жишээ нь ENTP нь {'Ne>Ti>Fe>Si'} гэсэн загвартай голд байгаа 2 function нь хоорондоо солбилцдог тул ENTP нь бусад тестууд дээр Feeler гэж гарах боломжтой байдаг. Мөн ENTP зан чанартай хүмүүс ambivert байдаг тул INTP гэж гарах хандлагатай. Жич: жинхэнэ INTP нь хамгийн introverted type гэсэн байдаг. Хэрвээ илүү судлахыг хүсвэл: <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Jungian_cognitive_functions">https://en.wikipedia.org/wiki/Jungian_cognitive_functions</a>
+                </p>
+              </AccordionDetails>
+            </Accordion>
           </div>
           {/* section 2 */}
         </div>
@@ -349,7 +379,7 @@ export default function Result({ result }) {
               <Link href="/mbti">
                 <a className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>MBTI тайлбар</a>
               </Link>
-             </div> 
+            </div>
           </div>
         </div>
         <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
