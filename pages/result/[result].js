@@ -357,7 +357,7 @@ export default function Result({ result }) {
               </AccordionSummary>
               <AccordionDetails>
                 <p className={"text-sm"}>
-                  - Англи тестийн асуултыг янз бүрээр ойлгохоос гадна тест авж буй хэмжүүрүүд нь mistype буюу оновчгүй хариу гаргахад хүргэдэг. Үүнтэй тэмцэхийн тулд энэхүү тестийг хийсэн юм. Энэхүү тест нь Intuitive vs Sensing, Introvert vs Extrovert, Thinking vs Feeling гэх мэтийн хар цагаан аргаар тестлэх бус cognitive function буюу таны бодох арга барилыг шалгаж хариу гаргадаг. Зан чанар бүрд thinking, feeling, sensing, intuiting зэрэг агуулагдаж байдаг ба заримдаа тэд нь хосолж ажилдаг. Жишээ нь ENTP нь {'Ne>Ti>Fe>Si'} гэсэн загвартай голд байгаа 2 function нь хоорондоо солбилцдог тул ENTP нь бусад тестууд дээр Feeler гэж гарах боломжтой байдаг. Мөн ENTP зан чанартай хүмүүс ambivert байдаг тул INTP гэж гарах хандлагатай. Жич: жинхэнэ INTP нь хамгийн introverted type гэсэн байдаг. Хэрвээ илүү судлахыг хүсвэл: <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Jungian_cognitive_functions">https://en.wikipedia.org/wiki/Jungian_cognitive_functions</a>
+                  - Англи тестийн асуултыг янз бүрээр ойлгохоос гадна тест авж буй хэмжүүрүүд нь mistype буюу оновчгүй хариу гаргахад хүргэдэг. Үүнтэй тэмцэхийн тулд энэхүү тестийг хийсэн юм. Энэхүү тест нь Intuitive vs Sensing, Introvert vs Extrovert, Thinking vs Feeling гэх мэтийн хар цагаан аргаар тестлэх бус cognitive function буюу таны бодох арга барилыг шалгаж хариу гаргадаг. Зан чанар бүрд thinking, feeling, sensing, intuiting зэрэг агуулагдаж байдаг ба заримдаа тэд нь хосолж ажилдаг. Жишээ нь ENTP нь {'Ne>Ti>Fe>Si'} гэсэн загвартай голд байгаа 2 function нь хоорондоо солбилцдог тул ENTP нь бусад тестууд дээр Feeler гэж гарах боломжтой байдаг. Мөн ENTP зан чанартай хүмүүс ambivert байдаг тул INTP гэж гарах хандлагатай. Жич: жинхэнэ INTP нь хамгийн introverted type гэсэн байдаг. Хэрвээ илүү судлахыг хүсвэл: <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Jungian_cognitive_functions">Jungian_cognitive_functions</a>
                 </p>
               </AccordionDetails>
             </Accordion>
@@ -375,7 +375,7 @@ export default function Result({ result }) {
               <MbtiScores cogFunctions={cogFunctions} />
             </div> */}
             <div className={"mt-6 flex flex-col items-center"}>
-              <h1 className={"text-sm font-bold"}>Cognitive Function ба MBTI-ийн талаар дэлгэрэхгүй уншихыг хүсвэл</h1>
+              <h1 className={"text-sm px-2 text-center font-bold"}>Cognitive Function ба MBTI-ийн талаар дэлгэрэхгүй уншихыг хүсвэл</h1>
               <Link href="/mbti">
                 <a className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>MBTI тайлбар</a>
               </Link>
