@@ -1,16 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Router from 'next/router';
-import Link from 'next/link';
-import styles from "../styles/test.module.css";
-import Logo from '../public/logo.jpg';
 import Navbar from '../components/common/Navbar';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import DuoFunctions from '../components/DuoFunctions';
 import Question from '../components/Question';
 import CaseStudy from '../components/CaseStudy';
-
+import soloQuestionData from '../components/data/soloFunctions.json';
 
 export default function Test() {
 
@@ -29,89 +23,12 @@ export default function Test() {
   cogFunctions.set("Fe", 0);
   cogFunctions.set("Fi", 0);
 
-  let tempArray = [{
-    cogfunc: "Ne",
-    question: "Шинэ санаа олж сэдэх надад амархан",
-  }, {
-    cogfunc: "Ne",
-    question: "Би хамааралгүй мэт хоёр зүйлсийн хоорондын холбоо ажиглах дуртай"
-  }, {
-    cogfunc: "Ne",
-    question: "Миний ухаан санаа замбараагүй байх хандлагатай"
-  }, {
-    cogfunc: "Ni",
-    question: "Холын ирээдүй өөрийн эрхгүй нүдэнд харагддаг"
-  }, {
-    cogfunc: "Ni",
-    question: "Юмсын зүй тогтол надад амархан ажиглагддаг"
-  }, {
-    cogfunc: "Ni",
-    question: "Би нэг үзэл бодолдоо маш үнэнч"
-  }, {
-    cogfunc: "Se",
-    question: "Би хурдан шаламгай сэтгэж дасан зохицохдоо сайн"
-  }, {
-    cogfunc: "Se",
-    question: "Би тухайн цаг үе мөчдөө төвлөрч бүрэн мэдрэх дуртай"
-  }, {
-    cogfunc: "Se",
-    question: "Би эрсдэлтэй үйлдэл хийх дуртай"
-  }, {
-    cogfunc: "Si",
-    question: "Би баримт, болсон үйл явдлуудыг цэгцтэй боддог"
-  }, {
-    cogfunc: "Si",
-    question: "Би дадал зуршил хэвшүүлэх дуртай"
-  }, {
-    cogfunc: "Si",
-    question: "Би өнгөрсөндөө уягдах хандлагатай"
-  }, {
-    cogfunc: "Te",
-    question: "Би ямарваа нэгэн асуудлыг шийдэх хамгийн дөт замыг олохдоо сайн"
-  }, {
-    cogfunc: "Te",
-    question: "Би бодит үр дүнтэй үйлдэл хийхийг эрхэмлэдэг"
-  }, {
-    cogfunc: "Te",
-    question: "Би хэт захирангуй байх хандлагатай"
-  }, {
-    cogfunc: "Ti",
-    question: "Би бусдын логик алдааг амархан олдог"
-  }, {
-    cogfunc: "Ti",
-    question: "Би юмсын логик учир шалтгааныг тунгаан боддог"
-  }, {
-    cogfunc: "Ti",
-    question: "Надад хариунаас илүү бодох арга барил нь чухал"
-  }, {
-    cogfunc: "Fe",
-    question: "Би хэнтэй ч хамаагүй аашийг нь олоод харьцчихдаг"
-  }, {
-    cogfunc: "Fe",
-    question: "Бусдын сэтгэл хөдлөл надад чухал"
-  }, {
-    cogfunc: "Fe",
-    question: "Өөрийн шаардлагыг бусдад тавих нь надад хэцүү байдаг"
-  },
-  {
-    cogfunc: "Fi",
-    question: "Би мэдрэмж сайтай хүн"
-  },
-   {
-    cogfunc: "Fi",
-    question: "Би өөрийн ёс зүй, хэм хэмжээндээ үнэнч"
-  }, {
-    cogfunc: "Fi",
-    question: "Надад эвтэй байхаас шударга байх нь чухал"
-  },];
-
   let questionChecked = [];
   let questionChoosen = [];
   let scoreChoice = [-1.0, -0.6, 0, 0.6, 1.0];
 
   useEffect(() => {
-    tempArray = ShuffleArray(tempArray);
-    setSoloQuestions(tempArray);
+    setSoloQuestions(ShuffleArray(soloQuestionData));
     setSavingCogFunc(cogFunctions);
   }, [])
 
@@ -134,7 +51,7 @@ export default function Test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
-    
+
 
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {
@@ -162,10 +79,10 @@ export default function Test() {
 
     return array;
   }
-  tempArray = ShuffleArray(tempArray);
+ 
   let resParameter = "";
   function createUrl() {
-    
+
     let url = "/result/"
     let funcUrl =
       "Ne=" + Math.floor(savingCogFunc.get("Ne") * 10) / 10 +
@@ -176,7 +93,7 @@ export default function Test() {
       "&Ti=" + Math.floor(savingCogFunc.get("Ti") * 10) / 10 +
       "&Fe=" + Math.floor(savingCogFunc.get("Fe") * 10) / 10 +
       "&Fi=" + Math.floor(savingCogFunc.get("Fi") * 10) / 10;
-      window.localStorage.setItem('previousTest', url + funcUrl);  
+    window.localStorage.setItem('previousTest', url + funcUrl);
     router.push(url + funcUrl)
 
   }

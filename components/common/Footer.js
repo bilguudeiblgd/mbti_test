@@ -22,20 +22,28 @@ const Footer = () => {
                     Question {'&'} Test: mainercyber@gmail.com
                 </p>
                 <div className={"mt-6 flex flex-row"}>
-                    <h4 > <b>Website</b> by - Blgd</h4>
+                    <div>
+                        <p><b>Website</b></p>
+                        <h4> - Blgd</h4>
+                    </div>
                     <div className={"mx-4"}>|</div>
-                    <h4> <b>Questions, UI</b> - Cyberio</h4>
+                    <div>
+                        <p><b>Questions</b></p>
+                        <h4> - Cyberio</h4>
+                        <h4> - Haydayhi</h4>
+                    </div>
+
                     <div className={"mx-4"}>|</div>
                     <div className={"w-25"}>
-                        <button onClick={onShowTest}><h4 className={"text-blue-500"}> {"Q&A"} Testers</h4></button>
+                        <button onClick={onShowTest}><h4 className={"text-blue-500"}> {"Q&A"} Testers {"<"}</h4></button>
                         {
                             showTester ?
                                 <div><p className={"text-sm"}>-rink</p>
                                     <p className={"text-sm"}>-mbti_mongolia</p>
                                     <p className={"text-sm"}>-donnie</p>
                                     <p className={"text-sm"}>-existence</p></div>
-                            : ""
-                            
+                                : ""
+
                         }
 
                     </div>

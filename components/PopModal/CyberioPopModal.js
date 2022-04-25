@@ -21,9 +21,9 @@ export default function CyberioPopModal() {
         <div>
             <div className={"flex py-2 justify-center"}>
                 <div className={" absolute bottom-4"}>
-                    <Button variant="outlined" className={"text-[rgb(255,217,61)] text-xs rounded-full border-[rgb(255,217,61)]"} onClick={handleClickOpen}>
+                    <a className={"text-[rgb(255,217,61)] cursor-pointer border-2 px-2 py-1 font-medium text-xs rounded-full border-[rgb(255,217,61)]"} onClick={handleClickOpen}>
                         Тооцооллох арга
-                    </Button>
+                    </a>
                 </div>
             </div>
 

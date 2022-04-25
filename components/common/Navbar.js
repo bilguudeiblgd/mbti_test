@@ -59,11 +59,11 @@ export default function Navbar() {
                 href="https://discord.gg/a3tUXncYBG"
                 className={"cursor-pointer "}
               >
-                <FaDiscord
+                {/* <FaDiscord
                   className={""}
                   style={{ color: "rgb(210,162,55)" }}
                   size={"3rem"}
-                />
+                /> */}
               </a>
             </li>
           </div>
