@@ -16,8 +16,9 @@ export default function Faq() {
   return (
     <div>
       <Navbar />
+    
       <div className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 mt-12"}>
-        <div className={"max-w-lg mx-auto mt-12 mb-36"}>
+        <div className={"max-w-lg mx-auto mt-12"}>
         <h1 className={"text-3xl text-center mb-12 font-bold text-[#b358ce]"}>
             Түгээмэл асуултууд
           </h1>
@@ -112,8 +113,9 @@ export default function Faq() {
             </p>
           </div>
         </div>
+   
       </div>
-        <div className={"mt-12"}>
+        <div className={"mt-40"}>
         <Footer />
         </div>
        

@@ -42,6 +42,11 @@ export default function Navbar() {
                 <a className={"text-gray-600 hover:text-black"}>FAQ</a>
               </Link>
             </li>
+            <li className={"ml-8 hidden md:block"}>
+              <Link href="/personalities">
+                <a className={"text-gray-600 hover:text-black"}>16 Personalities</a>
+              </Link>
+            </li>
           </div>
           <div className={"flex flex-row items-center"}>
             <li className={"mr-2 md:mr-6"}>
