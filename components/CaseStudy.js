@@ -33,7 +33,7 @@ export default function CaseStudy({ part, cogFunctions }) {
         let current2 = cogFunctions.get(cogfunc2);
         cogFunctions.set(cogfunc1, current1 + (scoreChoice[choice - 1]));
         cogFunctions.set(cogfunc2, current2 - (scoreChoice[choice - 1]));
-        console.log(cogFunctions);
+      
     }
 
     useEffect(() => {

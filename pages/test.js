@@ -51,7 +51,7 @@ export default function Test() {
     let current = cogFunctions.get(cogfunc);
 
     cogFunctions.set(cogfunc, current + scoreChoice[choice - 1]);
-    console.log(cogFunctions);
+
 
   }
   const deleteChange = (cogfunc, questionNum, preChoice, choice) => {

@@ -28,7 +28,7 @@ export default function DuoFunctions({ part, cogFunctions }) {
         let current2 = cogFunctions.get(cogfunc2);
         cogFunctions.set(cogfunc1, current1 + (scoreChoice[choice - 1]));
         cogFunctions.set(cogfunc2, current2 + (scoreChoice[choice - 1] / (10/7)));
-        console.log(cogFunctions);
+      
     }
     const deleteChange = (cogfunc1, cogfunc2, questionNum, preChoice, choice) => {
         let current1 = cogFunctions.get(cogfunc1);
