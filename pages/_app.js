@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   const handleRouteChange = (url) => {
-    window.gtag('config', '[G-S7R8QW66QB]', {
+    window.gtag('config', 'G-S7R8QW66QB', {
       page_path: url,
     });
   };

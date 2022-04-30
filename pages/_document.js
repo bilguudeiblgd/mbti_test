@@ -7,7 +7,7 @@ export default function Document() {
             <Head>
                 <script
                     async
-                    src="https://www.googletagmanager.com/gtag/js?id=[G-S7R8QW66QB]"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-S7R8QW66QB"
                 />
 
                 <script
@@ -16,7 +16,7 @@ export default function Document() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '[G-S7R8QW66QB]', { page_path: window.location.pathname });
+              gtag('config', 'G-S7R8QW66QB', { page_path: window.location.pathname });
             `,
                     }}
                 />
