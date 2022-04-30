@@ -34,20 +34,7 @@ export default function Home() {
 
   return (
     <div className={""}>
-      <Head>
-        <title>MBTI Тест</title>
-        <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
-        <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-      </Head>
+      
       <Navbar />
       <main className={""}>
         <div
