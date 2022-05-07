@@ -34,19 +34,16 @@ export default function Home() {
 
   return (
     <div className={""}>
-      
       <Navbar />
       <main className={""}>
         <div
           className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4 my-12"}
         >
           <div className={"grid md:grid-cols-2 gap-6 mb-20"}>
-            <div className={"flex flex-col mt-6"}>
+            <div className={"flex flex-col md:mt-6"}>
               <div className={""}>
-                <h1 className={"text-6xl font-semibold mb-6"}>
-                  Зан чанарын тест
-                </h1>
-                <h4 className={"text-1xl text-gray-600"}>
+                <h1 className={"text-6xl font-bold mb-6"}>Зан чанарын тест</h1>
+                <h4 className={"text-1xl text-gray-600 text-justify"}>
                   Бид уг тестийг сайн дураараа хийсэн болно. Уг тестийг Jungian
                   Typology буюу Cognitive personality theory-ээс эх аван хийсэн.
                   Өөрийнхөө жинхэнэ зан чанараа олж мэдэхийн тулд цаг заваа
@@ -54,15 +51,23 @@ export default function Home() {
                   гарах тул илүү мэдээллийг манай Instagram хуудсаас олж
                   уншаарай.
                 </h4>
-                <div className={"mt-4"}>
+                <div className={"mt-8 flex"}>
                   <Link href="/mbti">
-                    <a className={"px-4 py-1 text-black text-sm border-black border-2 rounded-full"}>
-                      Илүү ихийг унших
-                    </a>
+                    <div className=" mr-3">
+                      <button
+                        className={
+                          "py-2 px-4 flex flex-row items-center hover:scale-105 duration-300"
+                        }
+                        style={{
+                          border: "2px solid rgb(122,70,138)",
+                          color: "rgb(122,70,138)",
+                          borderRadius: "25px",
+                        }}
+                      >
+                        <h3>Илүү ихийг унших</h3>
+                      </button>
+                    </div>
                   </Link>
-                </div>
-
-                <div className={"w-40 mt-4"}>
                   <Link href="/test">
                     <a>
                       {" "}

@@ -1,14 +1,15 @@
-import { AiOutlineArrowRight } from 'react-icons/ai';
-
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const TestButton = () => {
-    return <div className={"py-2"}>
+  return (
+    <div>
       <button
         className={
           "py-2 px-6 md:px-8 flex flex-row items-center hover:scale-105 duration-300 group"
         }
         style={{
           backgroundColor: "rgb(122,70,138)",
+          border: "2px solid rgb(122,70,138)",
           color: "white",
           borderRadius: "25px",
           width: "100%",
@@ -21,7 +22,7 @@ const TestButton = () => {
         />
       </button>
     </div>
-}
-
+  );
+};
 
 export default TestButton;
