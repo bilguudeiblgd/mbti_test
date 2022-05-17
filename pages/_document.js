@@ -1,7 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
-    console.log("document is running");
     return (
         <Html>
             <Head>
@@ -20,7 +19,7 @@ export default function Document() {
             `,
                     }}
                 />
-                <title>MBTI Тест</title>
+
                 <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
                 <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
                 <link rel="icon" href="/favicon.ico" />
