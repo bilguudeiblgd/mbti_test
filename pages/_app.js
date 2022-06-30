@@ -20,6 +20,8 @@ function MyApp({ Component, pageProps }) {
   return (<>
     <Head>
       <title>MBTI Тест</title>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1431674278951978"
+        crossOrigin="anonymous"></script>
     </Head>
     <Component {...pageProps} />
   </>)
