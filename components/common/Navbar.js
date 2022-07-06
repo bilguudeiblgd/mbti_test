@@ -86,6 +86,22 @@ export default function Navbar() {
                   16 Personalities
                 </a>
               </Link>
+
+            </li>
+            <li>
+              <Link href="/enneagram">
+                <a className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0">
+                  Enneagram
+                </a>
+              </Link>
+
+            </li>
+            <li>
+              <Link href="https://discord.gg/ch2Pj23jhZ">
+                <a target="_blank" className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0">
+                  Get Typed
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -113,6 +129,20 @@ export default function Navbar() {
                 <Link href="/personalities">
                   <a className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
                     16 Personalities
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/enneagram">
+                  <a className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
+                    Enneagram
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://discord.gg/ch2Pj23jhZ">
+                  <a target="_blank" className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
+                    Get typed
                   </a>
                 </Link>
               </li>
