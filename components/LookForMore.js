@@ -14,7 +14,7 @@ export const LookForMore = () => {
             <div>
                 <p className={"text-md text-semibold text-center"}>MBTI болон Cognitive Function-ийн тухай мэдээллийг дараах холбоосуудаар аваарай</p>
                 <div className={"flex flex-row justify-center mt-6"}>
-                    <a href="https://discord.gg/ch2Pj23jhZ" target="_blank" rel="noopener noreferrer" >
+                    <a href="https://discord.gg/GZqNrKWxM7" target="_blank" rel="noopener noreferrer" >
                         <BsDiscord size={"50px"} className={"text-[#8b4766] cursor-pointer"} />
                     </a>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mbti_mongolia/"><BsInstagram size={"50px"} className={"mx-8 text-[#8b4766] cursor-pointer"} /></a>

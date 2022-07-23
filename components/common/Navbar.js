@@ -97,7 +97,7 @@ export default function Navbar() {
 
             </li>
             <li>
-              <Link href="https://discord.gg/ch2Pj23jhZ">
+              <Link href="https://discord.gg/GZqNrKWxM7">
                 <a target="_blank" className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0">
                   Get Typed
                 </a>
@@ -140,7 +140,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link href="https://discord.gg/ch2Pj23jhZ">
+                <Link href="https://discord.gg/GZqNrKWxM7">
                   <a target="_blank" className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
                     Get typed
                   </a>
