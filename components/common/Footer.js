@@ -21,10 +21,12 @@ const Footer = () => {
                 <p className={"text-gray-600 text-sm text-center"}>
                     Question {'&'} Test: mainercyber@gmail.com
                 </p>
+                <p><i>In colab with <a href="https://www.instagram.com/mbti_mongolia/" target="_blank" rel="noreferrer" >MBTI Mongolia</a></i></p>
+
                 <div className={"mt-6 flex flex-row"}>
                     <div>
                         <p><b>Website</b></p>
-                        <h4> - Blgd</h4>
+                        <h4> - Bel</h4>
                     </div>
                     <div className={"mx-4"}>|</div>
                     <div>
@@ -51,7 +53,7 @@ const Footer = () => {
 
             </div>
             <div className={"bg-[#6028AC] py-2 w-full mt-6"}>
-                <h2 className={"text-white text-center"}>Copyright © MBTI MONGOLIA 2022. All rights reserved</h2>
+                <h2 className={"text-white text-center"}>Copyright © MBTI MONGOLIA {new Date().getFullYear()}. All rights reserved</h2>
             </div>
         </div>
     )

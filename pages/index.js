@@ -50,6 +50,7 @@ export default function Home() {
                   гаргаж, шударгаар хариулаарай! Жич: Зан чанарын хариу дангаар
                   гарах тул илүү мэдээллийг манай Instagram хуудсаас олж
                   уншаарай.
+                  
                 </h4>
                 <div className={"mt-8 flex"}>
                   <Link href="/mbti">
