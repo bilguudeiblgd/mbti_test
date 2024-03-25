@@ -2,12 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import Logo from "/public/logo.jpg";
-import { FaDiscord } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
 import TestButton from "./TestButton.js";
-import styles from "/styles/navbar.module.css";
-import { FaHamburger } from "react-icons/fa";
 export default function Navbar() {
   const [mobNavbar, setMobNavbar] = useState(false);
   // const [open, setOpen] = useState(false);
@@ -16,7 +11,7 @@ export default function Navbar() {
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/" className="flex items-center">
           <img
-            src="/logo.jpg"
+            src="/TUcircle_logo.png"
             className="mr-3 h-9 sm:h-9 rounded-full"
             alt="Flowbite Logo"
           />
@@ -64,12 +59,12 @@ export default function Navbar() {
         <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
-              <Link href="/mbti">
+              <Link href="/personality16">
                 <a
                   className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0"
                   aria-current="page"
                 >
-                  MBTI
+                  16 Personality
                 </a>
               </Link>
             </li>
@@ -80,14 +75,7 @@ export default function Navbar() {
                 </a>
               </Link>
             </li>
-            <li>
-              <Link href="/personalities">
-                <a className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0">
-                  16 Personalities
-                </a>
-              </Link>
-
-            </li>
+    
             <li>
               <Link href="/enneagram">
                 <a className="text-base block py-2 pr-4 pl-3 text-gray-400 hover:text-gray-700 rounded md:bg-transparent md:p-0">
@@ -112,7 +100,7 @@ export default function Navbar() {
           >
             <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium absolute w-full bg-gray-100 shadow-sm rounded-md">
               <li>
-                <Link href="/mbti">
+                <Link href="/personality16">
                   <a className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
                     MBTI
                   </a>
@@ -125,13 +113,7 @@ export default function Navbar() {
                   </a>
                 </Link>
               </li>
-              <li>
-                <Link href="/personalities">
-                  <a className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">
-                    16 Personalities
-                  </a>
-                </Link>
-              </li>
+           
               <li>
                 <Link href="/enneagram">
                   <a className="block py-2 pr-4 pl-3 text-gray-700 hover:text-gray-900 rounded md:bg-transparent md:p-0 m-1">

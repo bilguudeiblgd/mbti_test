@@ -375,9 +375,9 @@ export default function Result({ result }) {
               <MbtiScores cogFunctions={cogFunctions} />
             </div> */}
             <div className={"mt-6 flex flex-col items-center"}>
-              <h1 className={"text-sm px-2 text-center font-bold"}>Cognitive Function ба MBTI-ийн талаар дэлгэрэхгүй уншихыг хүсвэл</h1>
-              <Link href="/mbti">
-                <a className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>MBTI тайлбар</a>
+              <h1 className={"text-sm px-2 text-center font-bold"}>Cognitive Function ба 16 Personality-ийн талаар дэлгэрэхгүй уншихыг хүсвэл</h1>
+              <Link href="/personality16">
+                <a className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>16 Personality тайлбар</a>
               </Link>
             </div>
           </div>

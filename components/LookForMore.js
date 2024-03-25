@@ -12,7 +12,7 @@ export const LookForMore = () => {
     return (
         <div className={"flex flex-col items-center"}>
             <div>
-                <p className={"text-md text-semibold text-center"}>MBTI болон Cognitive Function-ийн тухай мэдээллийг дараах холбоосуудаар аваарай</p>
+                <p className={"text-md text-semibold text-center"}>16 Personality болон Cognitive Function-ийн тухай мэдээллийг дараах холбоосуудаар аваарай</p>
                 <div className={"flex flex-row justify-center mt-6"}>
                     <a href="https://discord.gg/GZqNrKWxM7" target="_blank" rel="noopener noreferrer" >
                         <BsDiscord size={"50px"} className={"text-[#8b4766] cursor-pointer"} />

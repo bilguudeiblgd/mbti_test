@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../public/logo.jpg";
+import Logo from "../public/TUcircle_logo.png";
 import Navbar from "../components/common/Navbar";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -53,7 +53,7 @@ export default function Home() {
                   
                 </h4>
                 <div className={"mt-8 flex"}>
-                  <Link href="/mbti">
+                  <Link href="/personality16">
                     <div className=" mr-3">
                       <button
                         className={
@@ -82,7 +82,7 @@ export default function Home() {
               <div>
                 <Image
                   className={"rounded-full "}
-                  alt="MBTI Mongolia Logo big"
+                  alt="Type unlocked Logo big"
                   src={Logo}
                   width={400}
                   height={400}

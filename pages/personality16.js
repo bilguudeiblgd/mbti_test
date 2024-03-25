@@ -12,7 +12,7 @@ export default function Mbti() {
       <div className={"container mx-auto lg:px-16 md:px-12 sm:px-4 px-4"}>
         <div className={"mt-12 max-w-3xl mx-auto"}>
           <h1 className={"text-2xl font-bold text-[#b358ce]"}>
-            MBTI гэж юу вэ?
+            16 Personality гэж юу вэ?
           </h1>
           <div className={"mt-6"}>
             <article>
@@ -20,7 +20,7 @@ export default function Mbti() {
                 Myers-Briggs Type Indicator буюу 16-н зан чанарын тест юм.
                 Хүнийг 4(+1) шалгуураар 16-н төрлийн зан чанарт хуваадаг.
                 Extroversion vs Introversion, Intuition vs Sensing, Thinking vs
-                Feeling, Prospecting vs Judging, Turbulent vs Assertive. MBTI нь
+                Feeling, Prospecting vs Judging, Turbulent vs Assertive. 16 Personality нь
                 Big Five тесттэй төстэй хэмжүүртэй байдаг.
               </p>
             </article>
@@ -29,7 +29,7 @@ export default function Mbti() {
                 Cognitive function гэж юу вэ?
               </h1>
               <p className={"font-semibold text-sm"}>
-                MBTI нь Carl Jung-ийн Cognitive Function Theory-гээс эх аван
+                16 Personality нь Carl Jung-ийн Cognitive Function Theory-гээс эх аван
                 хийгдсэн систем юм. Зан чанар болгон 8-н cognitive function-ий
                 4ээс нь бүтдэг. Хүн болгонд Thinking, Feeling, Sensing,
                 Intuition өөр өөр хэмжээгээр байдаг хэмээн үздэг. Үүнээс 16-н

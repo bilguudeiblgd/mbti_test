@@ -1,4 +1,4 @@
-# A website for taking MBTI Test (Only in Mongolian).
+# A website for taking MBTI|16 Personality Test (Only in Mongolian).
 
 > MBTI is a widely used personality test in both for fun and in professional environment. Due to growing interest on the MBTI from Mongolia, we didn't have a well-made test in our own language. Therefore, I teamed up with people who have been studying MBTI for years and we made this test.
 

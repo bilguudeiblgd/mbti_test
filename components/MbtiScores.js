@@ -77,7 +77,7 @@ export default function MbtiScores({ cogFunctions }) {
                 className={"border-2 mb-6 md:mb-0 w-80 rounded-2xl shadow-md h-90 p-6"}
             >
                 <h3 className={"text-1xl font-medium text-center mb-4"}>
-                    MBTI Үсэгнүүд
+                    16 Personality Үсэгнүүд
                 </h3>
                 <div className={"flex flex-col"}>
                     <div className={"mb-2"}>
