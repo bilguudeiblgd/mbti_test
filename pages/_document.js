@@ -21,8 +21,8 @@ export default function Document() {
                     }}
                 />
 
-                <meta name="description" content="Та ямар зан чанартай хүн бэ? MBTI" />
-                <meta name="keywords" content="MBTI Mongolia, 16 Personalities" />
+                <meta name="description" content="Та ямар зан чанартай хүн бэ? Myers Briggs Type indicator" />
+                <meta name="keywords" content="16 Types, 16 Personalities, Myers briggs type indicator" />
                 <link rel="icon" href="/favicon.ico" />
                 <link
                     rel="stylesheet"
