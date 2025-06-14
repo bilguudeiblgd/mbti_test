@@ -12,6 +12,7 @@ import { LookForMore } from "../../components/LookForMore";
 import Footer from "../../components/common/Footer";
 import PopModal from "../../components/PopModal/PopModal";
 import CyberioPopModal from "../../components/PopModal/CyberioPopModal";
+import Image from "next/image";
 export default function Result({ result }) {
   result = decodeURIComponent(result);
 
@@ -383,6 +384,28 @@ export default function Result({ result }) {
           </div>
         </div>
         <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
+
+        <div>
+          <h1 className={"text-4xl text-center mb-8"}>Найзуудаараа тест хийлгэх</h1>
+          <p className={"text-center text-sm mb-4"}>
+            Та доорх холбоосоор орж найзуудаараа тест бөглүүлж тэдний таныг ямар зан чанартай гэж боддогийг хараарай.
+          </p>
+          <div className="flex flex-col items-center mb-8">
+            <Image
+              src={"/melogy_home_illustration_new.jpeg"}
+              alt={"share"}
+              width={300}
+              height={500}
+              className={"mx-auto mb-4"} />
+                <a target="_blank" href="https://melogy.me" className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>Найзуудаар өөрийн тест бөглүүлэх</a>
+          </div>
+          
+
+        </div>
+
+
+        <div className={"border-b-2 w-3/4 mx-auto mb-12"}></div>
+
         <LookForMore />
       </main>
       <footer className={""}>
