@@ -397,7 +397,7 @@ export default function Result({ result }) {
               width={300}
               height={500}
               className={"mx-auto mb-4"} />
-                <a target="_blank" href="https://melogy.me" className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>Найзуудаар өөрийн тест бөглүүлэх</a>
+                <a target="_blank" rel="noreferrer" href="https://melogy.me" className={"px-8 mt-4 py-2 bg-[#FFD93D] text-white rounded-full border-2"}>Найзуудаар өөрийн тест бөглүүлэх</a>
           </div>
           
 
