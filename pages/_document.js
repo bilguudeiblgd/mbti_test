@@ -9,7 +9,7 @@ export default function Document() {
                     src="https://www.googletagmanager.com/gtag/js?id=G-S7R8QW66QB"
                 />
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840183695058057"
-                    crossorigin="anonymous"></script>
+                    crossOrigin="anonymous"></script>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
