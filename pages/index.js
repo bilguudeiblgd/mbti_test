@@ -49,11 +49,13 @@ export default function Home() {
                   Өөрийнхөө жинхэнэ зан чанараа олж мэдэхийн тулд цаг заваа
                   гаргаж, шударгаар хариулаарай! Жич: Зан чанарын хариу дангаар
                   гарах тул илүү мэдээллийг манай Instagram хуудсаас олж
-                  уншаарай.
-                  
+                  уншаарай. <Link href="/personality16"><a style={{ color: "rgb(122,70,138)" }}>
+                    Илүү ихийг унших
+                  </a></Link>
+
                 </h4>
                 <div className={"mt-8 flex"}>
-                  <Link href="/personality16">
+                  <Link href="https://melogy.me/" target="_blank">
                     <div className=" mr-3">
                       <button
                         className={
@@ -65,7 +67,7 @@ export default function Home() {
                           borderRadius: "25px",
                         }}
                       >
-                        <h3>Илүү ихийг унших</h3>
+                        <h3>Найзуудаараа тест өгүүлэх</h3>
                       </button>
                     </div>
                   </Link>
